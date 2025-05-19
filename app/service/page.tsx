@@ -219,7 +219,7 @@ export default function ServicePage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-[#708AE8]-foreground text-[#708AE8] hover:scale-105 active:scale-95 duration-200"
+              className="border-[#708AE8]-foreground text-[#708AE8] hover:text-[#708AE8] hover:scale-105 active:scale-95 duration-200"
             >
               <Link href="/faq">Read FAQs</Link>
             </Button>

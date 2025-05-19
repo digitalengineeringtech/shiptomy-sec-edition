@@ -1,6 +1,6 @@
 'use client'
 
-import { ShoppingBag, ArrowRight, Package, Truck } from "lucide-react"
+import { ShoppingBag, ArrowRight, Package, Truck, LineChart } from "lucide-react"
 import { Button } from "./ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
 import Link from "next/link"
@@ -15,7 +15,7 @@ const ServiceCards = () => {
             </p>
           </div> */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                <Card>
+                <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <ShoppingBag className="mb-2 h-10 w-10 text-[#708AE8]" />
                         <CardTitle className="text-black font-bold text-3xl">Buy For Me</CardTitle>
@@ -36,28 +36,29 @@ const ServiceCards = () => {
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card>
+                <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
-                        <Package className="mb-2 h-10 w-10 text-[#708AE8]" />
-                        <CardTitle className="text-black font-bold text-3xl">Buy From Other</CardTitle>
-                        <CardDescription className="text-md">We help you purchase from third-party sellers and marketplaces.</CardDescription>
+                        <LineChart className="mb-2 h-10 w-10 text-[#708AE8]" />
+                        <CardTitle className="text-black font-bold text-3xl">Consulting Service</CardTitle>
+                        <CardDescription className="text-base">
+                            Expert guidance for international business growth.
+                        </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-md text-muted-foreground">
-                            Shop from international marketplaces and third-party sellers. We verify the products and handle the
-                            shipping.
+                        <p className="text-muted-foreground">
+                            Get professional consulting to optimize your logistics, enter new markets, and expand your global
+                            footprint.
                         </p>
-
                     </CardContent>
                     <CardFooter>
                         <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
-                            <Link href="/service/buy-from-other" className="flex items-center gap-1">
+                            <Link href="/service/consulting-service" className="flex items-center gap-1">
                                 Learn more <ArrowRight className="h-4 w-4" />
                             </Link>
                         </Button>
                     </CardFooter>
                 </Card>
-                <Card>
+                <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <Truck className="mb-2 h-10 w-10 text-[#708AE8]" />
                         <CardTitle className="text-black font-bold text-3xl">Ship for me</CardTitle>
