@@ -33,3 +33,5 @@ export default function ChatWidget() {
 
   return null;
 }
+
+// NO USED FOR ChatBot
