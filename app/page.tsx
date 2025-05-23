@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import Link from "next/link"
 import Image from "next/image"
 import ServiceCards from '@/components/ServiceCards'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, LineChart, ShoppingBag, Truck } from 'lucide-react'
 
 export default function Home() {
   // const count = useAppSelector((state) => state.counter.value)
@@ -20,26 +20,35 @@ export default function Home() {
       <Button className='ml-5' onClick={()=>dispatch(incrementByAmount(5))}>Increment With Amount</Button> */}
 
       {/* Landing Section */}
-      <section className='py-30 text-center w-[70%]'>
-        <h1 className="text-6xl font-bold ">
-          Your Global Shopping & Shipping Partner
-        </h1>
-        <p className="text-xl text-muted-foreground my-7 px-10">
-          Your trusted shipping and purchasing partner. We make global shopping and shipping easy and affordable.
-        </p>
-
-        <div className='w-[60%] grid grid-cols-2 items-center gap-5 my-7 mx-auto'>
-          <Link href="/service">
-            <Button className='bg-[#708AE8] hover:bg-[#708AE8] cols-span-1 w-full font-semibold text-xl py-6 px-10 hover:scale-105 active:scale-95 duration-200'>Explore Our Services</Button>
-          </Link>
-          <Link href="/chat">
-            <Button className='bg-white hover:bg-white cols-span-1 w-full font-semibold text-xl py-6 px-10 hover:scale-105 active:scale-95 duration-200 border-2  text-black'>Chat With Us</Button>
-          </Link>
-        </div>
-
-
-        <div className="relative w-full flex justify-center items-center mt-30 ">
-          <Image src="/new-logo-transparent.png" alt="Myanmar Express Hub" width={600} height={400} />
+      <section className="bg-gradient-to-b from-muted/50 to-background py-24">
+        <div className="container flex flex-col items-center gap-8 text-center md:gap-12">
+          <div className="space-y-4">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+              Your Global Business Partner
+            </h1>
+            <p className="mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl">
+              Myanmar Express Hub makes international shopping, shipping, and business expansion easy, affordable, and
+              reliable.
+            </p>
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Button asChild size="lg">
+              <Link href="/service">Explore Our Services</Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link href="/chat">Contact Us</Link>
+            </Button>
+          </div>
+          <div className="relative h-[300px] w-full max-w-[1000px] overflow-hidden rounded-xl sm:h-[400px] md:h-[500px] bg-gradient-to-r from-primary/10 to-primary/5 flex items-center justify-center">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex gap-6">
+                <ShoppingBag className="h-16 w-16 text-primary/40" />
+                <Truck className="h-16 w-16 text-primary/40" />
+                <LineChart className="h-16 w-16 text-primary/40" />
+              </div>
+              <p className="text-muted-foreground text-lg">Global shipping and business services</p>
+            </div>
+          </div>
         </div>
       </section>
 
