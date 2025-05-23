@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function Footer() {
   return (
-    <footer className="bg-muted flex flex-col justify-center items-center pt-8">
+    <footer className="bg-muted flex flex-col justify-center items-center pt-8 px-10">
       <div className="container grid gap-8 justify-around md:grid-cols-2 lg:grid-cols-4">
         <div className="cols-span-1">
           <Link href="/">
@@ -48,8 +48,8 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/service/buy-from-other" className="text-muted-foreground hover:text-foreground">
-                Buy From Other
+              <Link href="/service/consulting-service" className="text-muted-foreground hover:text-foreground">
+                Consulting Service
               </Link>
             </li>
             <li>

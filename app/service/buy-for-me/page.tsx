@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function BuyForMePage() {
   return (
-    <div className="container mx-auto  py-12">
+    <div className="container mx-auto max-sm:px-10 py-12">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-[#708AE8]/10 px-3 py-1 text-sm font-medium text-[#708AE8]">
           <ShoppingBag className="mr-1 h-4 w-4" />

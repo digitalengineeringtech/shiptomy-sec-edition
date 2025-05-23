@@ -4,7 +4,7 @@ import Link from "next/link"
 
 export default function FAQPage() {
   return (
-    <div className="container py-12">
+    <div className="container max-sm:px-10 mx-auto py-12">
       <div className="mb-12 text-center">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Frequently Asked Questions</h1>
         <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">

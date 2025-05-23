@@ -1,12 +1,13 @@
 import Link from "next/link"
 import { CheckCircle, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
 export default function ShipForMePage() {
   return (
-    <div className="container py-12 mx-auto">
+    <div className="container py-12 max-sm:px-10 mx-auto">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           <Truck className="mr-1 h-4 w-4" />
@@ -32,7 +33,7 @@ export default function ShipForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
                 1
               </div>
-              <CardTitle className="mt-4">Register</CardTitle>
+              <CardTitle className="mt-4 text-2xl font-semibold">Register</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -45,7 +46,7 @@ export default function ShipForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
                 2
               </div>
-              <CardTitle className="mt-4">Ship to Us</CardTitle>
+              <CardTitle className="mt-4 text-2xl font-semibold">Ship to Us</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -58,7 +59,7 @@ export default function ShipForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
                 3
               </div>
-              <CardTitle className="mt-4">Processing</CardTitle>
+              <CardTitle className="mt-4 text-2xl font-semibold">Processing</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -71,7 +72,7 @@ export default function ShipForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-primary-foreground">
                 4
               </div>
-              <CardTitle className="mt-4">Delivery</CardTitle>
+              <CardTitle className="mt-4 text-2xl font-semibold">Delivery</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
@@ -212,8 +213,8 @@ export default function ShipForMePage() {
               <CardTitle>United States</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">USA</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/usa.png" alt="usa" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -222,8 +223,8 @@ export default function ShipForMePage() {
               <CardTitle>United Kingdom</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">UK</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/uk.svg" alt="uk" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -232,8 +233,9 @@ export default function ShipForMePage() {
               <CardTitle>Japan</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Japan</span>
+                {/* <span className="text-muted-foreground text-xs">Japan</span> */}
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/japan.jpg" alt="japan" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -242,8 +244,8 @@ export default function ShipForMePage() {
               <CardTitle>Thailand</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Thailand</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/thailand.jpg" alt="thailand" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -252,8 +254,8 @@ export default function ShipForMePage() {
               <CardTitle>Singapore</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Singapore</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/singapore.jpg" alt="singapore" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -262,8 +264,8 @@ export default function ShipForMePage() {
               <CardTitle>South Korea</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">South Korea</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/south_korea.jpg" alt="south-korea" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -272,8 +274,8 @@ export default function ShipForMePage() {
               <CardTitle>Australia</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Australia</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/australia.jpg" alt="‌australia" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -282,8 +284,8 @@ export default function ShipForMePage() {
               <CardTitle>Germany</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-              <div className="h-16 w-24 bg-muted rounded-md flex items-center justify-center">
-                <span className="text-muted-foreground text-xs">Germany</span>
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/germany.jpg" alt="germany" width={100} height={100}/>
               </div>
             </CardContent>
           </Card>
