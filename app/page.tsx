@@ -174,8 +174,8 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12">
-        <div className="container">
+      <section className="py-12 w-full">
+        <div className="container mx-auto">
           <div className="rounded-xl bg-gradient-to-r from-[#708AE8] to-[#708AE8]/80 p-8 text-center text-[#708AE8]-foreground md:p-12">
             <h2 className="text-white text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
             <p className="mx-auto mt-4 max-w-[700px] text-lg text-white">
