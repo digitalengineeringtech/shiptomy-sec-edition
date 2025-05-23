@@ -20,7 +20,7 @@ export default function Home() {
       <Button className='ml-5' onClick={()=>dispatch(incrementByAmount(5))}>Increment With Amount</Button> */}
 
       {/* Landing Section */}
-      <section className="bg-gradient-to-b from-muted/50 to-background py-24">
+      <section className=" from-muted/50 to-background py-24">
         <div className="container flex flex-col items-center gap-8 text-center md:gap-12">
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">

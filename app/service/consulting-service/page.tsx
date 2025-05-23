@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function ConsultingServicePage() {
   return (
-    <div className="container py-12 mx-auto">
+    <div className="container py-12 max-sm:px-10 mx-auto">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           <LineChart className="mr-1 h-4 w-4" />
