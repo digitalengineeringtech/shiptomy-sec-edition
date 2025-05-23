@@ -29,11 +29,11 @@ const ServiceCards = () => {
 
                     </CardContent>
                     <CardFooter>
-                        <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
-                            <Link href="/service/buy-for-me" className="flex items-center gap-1">
+                        <Link href="/service/buy-for-me" className="flex items-center gap-1 w-full">
+                            <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
                                 Learn more <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </Button>
+                            </Button>
+                        </Link>
                     </CardFooter>
                 </Card>
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
@@ -51,11 +51,11 @@ const ServiceCards = () => {
                         </p>
                     </CardContent>
                     <CardFooter>
-                        <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
-                            <Link href="/service/consulting-service" className="flex items-center gap-1">
+                        <Link href="/service/consulting-service" className="flex items-center gap-1 w-full">
+                            <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
                                 Learn more <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </Button>
+                            </Button>
+                        </Link>
                     </CardFooter>
                 </Card>
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
@@ -70,11 +70,11 @@ const ServiceCards = () => {
                         </p>
                     </CardContent>
                     <CardFooter>
-                        <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
-                            <Link href="/service/ship-for-me" className="flex items-center gap-1">
+                        <Link href="/service/ship-for-me" className="flex items-center gap-1 w-full">
+                            <Button className="mt-4 px-0 w-full bg-[#708AE8] hover:bg-[#6e80c0] hover:scale-105 active:scale-95 duration-200">
                                 Learn more <ArrowRight className="h-4 w-4" />
-                            </Link>
-                        </Button>
+                            </Button>
+                        </Link>
                     </CardFooter>
                 </Card>
             </div>

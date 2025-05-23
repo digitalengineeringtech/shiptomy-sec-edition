@@ -50,11 +50,11 @@ const Navbar = () => {
                                             <NavigationMenuContent className="!w-[250px]">
                                                 {serviceRoutes.map((i, ind) => {
                                                     return (
-                                                        <NavigationMenuLink key={ind}>
-                                                            <Link key={ind} href={i.path}>
+                                                        <Link key={ind} href={i.path}>
+                                                            <NavigationMenuLink key={ind}>
                                                                 {i.name}
-                                                            </Link>
-                                                        </NavigationMenuLink>
+                                                            </NavigationMenuLink>
+                                                        </Link>
                                                     )
                                                 })}
                                             </NavigationMenuContent>
@@ -63,11 +63,11 @@ const Navbar = () => {
                                 } else {
                                     return (
                                         <NavigationMenuItem key={index}>
-                                            <NavigationMenuLink key={index} >
-                                                <Link className="font-semibold text-[14px] " key={index} href={e.path} >
+                                            <Link className="font-semibold text-[14px] " key={index} href={e.path} >
+                                                <NavigationMenuLink key={index} >
                                                     {e.name}
-                                                </Link>
-                                            </NavigationMenuLink>
+                                                </NavigationMenuLink>
+                                            </Link>
                                         </NavigationMenuItem>
                                     )
                                 }
