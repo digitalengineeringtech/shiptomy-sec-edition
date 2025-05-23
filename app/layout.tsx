@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import ChatWidget from "@/components/ChatWidget";
 import { AIChatBot } from "@/components/chat/ai-chat-bot"
-import ChatWidget from "@/components/ChatWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +37,8 @@ export default function RootLayout({
           <Footer />
         </Providers>
         {/* <script defer src="https://static.getbutton.io/widget/bundle.js?id=yZQpO" ></script> */}
-        <ChatWidget />
-        {/* <AIChatBot /> */}
+        {/* <ChatWidget /> */}
+        <AIChatBot />
       </body>
     </html>
   );
