@@ -3,6 +3,38 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
+.scroll-container::-webkit-scrollbar {
+  width: 7px;
+}
+.scroll-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+.scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary), var(--primary)); /* Gradient thumb */
+  border-radius: 5px;
+}
+.scroll-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--primary), var(--primary)); /* Darker gradient */
+}
+
+.mini-scroll-container::-webkit-scrollbar {
+  width: 3px;
+}
+.mini-scroll-container::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+.mini-scroll-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, var(--primary), var(--primary)); /* Gradient thumb */
+  border-radius: 5px;
+}
+.mini-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, var(--primary), var(--primary)); /* Darker gradient */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -51,7 +83,7 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #708AE8;
+  --primary: #15335B;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);

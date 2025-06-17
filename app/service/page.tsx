@@ -15,11 +15,11 @@ export default function ServicePage() {
       <div className="grid gap-16">
         {/* Buy For Me Service */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square bg-gradient-to-br from-[#708AE8]/10 to-[#708AE8]/5 flex items-center justify-center p-8">
-            <ShoppingBag className="h-24 w-24 text-[#708AE8]/40" />
+          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center p-8">
+            <ShoppingBag className="h-24 w-24 text-primary/40" />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center rounded-full bg-[#708AE8]/10 px-3 py-1 text-sm font-medium text-[#708AE8]">
+            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <ShoppingBag className="mr-1 h-4 w-4" />
               Personal Shopping
             </div>
@@ -30,19 +30,19 @@ export default function ServicePage() {
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Access to retailers that don't ship internationally</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Secure payment processing</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Product verification before shipping</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Consolidation of multiple purchases</span>
               </li>
             </ul>
@@ -54,11 +54,11 @@ export default function ServicePage() {
 
         {/* Consulting Service */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square md:order-last bg-gradient-to-br from-[#708AE8]/10 to-[#708AE8]/5 flex items-center justify-center p-8">
-            <LineChart className="h-24 w-24 text-[#708AE8]/40" />
+          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square md:order-last bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center p-8">
+            <LineChart className="h-24 w-24 text-primary/40" />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center rounded-full bg-[#708AE8]/10 px-3 py-1 text-sm font-medium text-[#708AE8]">
+            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <LineChart className="mr-1 h-4 w-4" />
               Professional Consulting
             </div>
@@ -69,19 +69,19 @@ export default function ServicePage() {
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Logistics and supply chain optimization</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Market entry strategy development</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Business growth and expansion planning</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Customized solutions for your business needs</span>
               </li>
             </ul>
@@ -93,11 +93,11 @@ export default function ServicePage() {
 
         {/* Ship for me Service */}
         <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
-          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square bg-gradient-to-br from-[#708AE8]/10 to-[#708AE8]/5 flex items-center justify-center p-8">
-            <Truck className="h-24 w-24 text-[#708AE8]/40" />
+          <div className="relative aspect-video overflow-hidden rounded-xl md:aspect-square bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center p-8">
+            <Truck className="h-24 w-24 text-primary/40" />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="inline-flex items-center rounded-full bg-[#708AE8]/10 px-3 py-1 text-sm font-medium text-[#708AE8]">
+            <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <Truck className="mr-1 h-4 w-4" />
               International Shipping
             </div>
@@ -108,19 +108,19 @@ export default function ServicePage() {
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Personal shipping address in multiple countries</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Package consolidation to save on shipping</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Real-time tracking and notifications</span>
               </li>
               <li className="flex items-start gap-3">
-                <ArrowRight className="mt-1 h-5 w-5 text-[#708AE8] flex-shrink-0" />
+                <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                 <span>Customs clearance and documentation</span>
               </li>
             </ul>
@@ -206,20 +206,20 @@ export default function ServicePage() {
 
       {/* CTA Section */}
       <div className="mt-20">
-        <div className="rounded-xl bg-gradient-to-r from-[#708AE8] to-[#708AE8]/80 p-8 text-center text-[#708AE8]-foreground md:p-12">
+        <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
           <h2 className="text-white text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-white">
             Choose the service that best fits your needs or contact us for a customized solution.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Button asChild size="lg"  className="text-[#708AE8] bg-white hover:bg-white hover:scale-105 active:scale-95 duration-200">
+            <Button asChild size="lg"  className="text-primary bg-white hover:bg-white hover:scale-105 active:scale-95 duration-200">
               <Link href="/chat">Contact Us</Link>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-[#708AE8]-foreground text-[#708AE8] hover:text-[#708AE8] hover:scale-105 active:scale-95 duration-200"
+              className="border-primary-foreground text-primary hover:text-primary hover:scale-105 active:scale-95 duration-200"
             >
               <Link href="/faq">Read FAQs</Link>
             </Button>

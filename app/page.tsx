@@ -76,7 +76,7 @@ export default function Home() {
           </div>
           <div className="grid gap-8 md:grid-cols-4">
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#708AE8] text-lg font-bold text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 1
               </div>
               <h3 className="mt-4 text-xl font-bold">Register</h3>
@@ -85,14 +85,14 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#708AE8] text-lg font-bold text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 2
               </div>
               <h3 className="mt-4 text-xl font-bold">Shop</h3>
               <p className="mt-2 text-sm text-muted-foreground">Shop online or request us to purchase items for you.</p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#708AE8] text-lg font-bold text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 3
               </div>
               <h3 className="mt-4 text-xl font-bold">Ship</h3>
@@ -101,7 +101,7 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#708AE8] text-lg font-bold text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 4
               </div>
               <h3 className="mt-4 text-xl font-bold">Receive</h3>
@@ -125,8 +125,8 @@ export default function Home() {
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Reliable Service</h3>
               <p className="mt-2 text-muted-foreground">
@@ -134,8 +134,8 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Competitive Pricing</h3>
               <p className="mt-2 text-muted-foreground">
@@ -143,8 +143,8 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Expert Team</h3>
               <p className="mt-2 text-muted-foreground">
@@ -152,8 +152,8 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Global Network</h3>
               <p className="mt-2 text-muted-foreground">
@@ -161,8 +161,8 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Customer-Focused</h3>
               <p className="mt-2 text-muted-foreground">
@@ -170,8 +170,8 @@ export default function Home() {
               </p>
             </div>
             <div className="flex flex-col items-start">
-              <div className="mb-4 rounded-full bg-[#708AE8]/10 p-3">
-                <CheckCircle className="h-6 w-6 text-[#708AE8]" />
+              <div className="mb-4 rounded-full bg-primary/10 p-3">
+                <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">Innovative Solutions</h3>
               <p className="mt-2 text-muted-foreground">
@@ -185,21 +185,21 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-12 w-full">
         <div className="container mx-auto">
-          <div className="rounded-xl bg-gradient-to-r from-[#708AE8] to-[#708AE8]/80 p-8 text-center text-[#708AE8]-foreground md:p-12">
+          <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
             <h2 className="text-white text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
             <p className="mx-auto mt-4 max-w-[700px] text-lg text-white">
               Join thousands of satisfied customers who trust Myanmar Express Hub for their international business
               needs.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-              <Button asChild size="lg" variant="secondary" className='text-[#708AE8] hover:scale-105 active:scale-95 duration-200'>
+              <Button asChild size="lg" variant="secondary" className='text-primary hover:scale-105 active:scale-95 duration-200'>
                 <Link href="/service">Explore Our Services</Link>
               </Button>
               <Button
                 asChild
                 variant="outline"
                 size="lg"
-                className="hover:scale-105 active:scale-95 duration-200 border-[#708AE8]-foreground text-[#708AE8] hover:bg-[#708AE8]-foreground hover:text-[#708AE8]"
+                className="hover:scale-105 active:scale-95 duration-200 border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary"
               >
                 <Link href="/chat">Contact Us</Link>
               </Button>

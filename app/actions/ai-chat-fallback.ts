@@ -11,6 +11,7 @@ export async function generateAIResponse(
   userMessage: string,
   chatHistory: ChatMessage[]
 ): Promise<string> {
+  console.log(process.env.GROQ_API_KEY, "API Key");
   try {
     // Try to use Groq API directly if AI SDK doesn't work
     const response = await fetch(

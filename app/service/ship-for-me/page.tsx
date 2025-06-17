@@ -293,13 +293,13 @@ export default function ShipForMePage() {
       </div>
 
       {/* CTA */}
-      <div className="rounded-lg bg-muted p-8 text-center md:p-12">
-        <h2 className="text-3xl font-bold">Ready to start shipping?</h2>
-        <p className="mx-auto mt-4 max-w-[600px] text-muted-foreground">
+      <div className="rounded-lg bg-primary p-8 text-center md:p-12">
+        <h2 className="text-3xl font-bold text-white">Ready to start shipping?</h2>
+        <p className="mx-auto mt-4 max-w-[600px] text-white">
           Register today to get your personal shipping addresses and start receiving packages from around the world.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
-          <Button asChild size="lg">
+          <Button asChild variant="outline" size="lg">
             <Link href="/chat">Get Started</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
