@@ -118,7 +118,7 @@ export default function FAQPage() {
           <p className="mb-6 text-muted-foreground">
             Didn't find the answer you're looking for? Contact our support team.
           </p>
-          <Button asChild size="lg" className="bg-[#708AE8] hover:bg-[#708AE8] hover:scale-105 active:scale-95 duration-200">
+          <Button asChild size="lg" className="bg-primary hover:bg-primary hover:scale-105 active:scale-95 duration-200">
             <Link href="/chat">Chat With Us</Link>
           </Button>
         </div>

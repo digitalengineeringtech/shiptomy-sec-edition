@@ -12,6 +12,7 @@ export async function generateAIResponse(
   chatHistory: ChatMessage[]
 ): Promise<string> {
   try {
+    console.log(process.env.GROQ_API_KEY, "API Key")
     // Try to use Groq API directly
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -40,6 +41,7 @@ export async function generateAIResponse(
                         CONTACT INFORMATION:
                         - Phone: +95 9 123 456 789
                         - Email: info@myanmarexpresshub.com
+                        - Facebook Page: https://www.facebook.com/myanmarexpresshub
                         - Address: 123 Main Street, Yangon, Myanmar
                         - Business hours: Monday-Friday 9 AM - 5 PM, Saturday 9 AM - 12 PM
 

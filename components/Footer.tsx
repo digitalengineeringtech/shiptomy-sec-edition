@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container grid gap-8 justify-around md:grid-cols-2 lg:grid-cols-4">
         <div className="cols-span-1">
           <Link href="/">
-            <Image src="/new-logo-transparent.png" alt="Myanmar Express Hub" width={200} height={10} />
+            <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={250} height={10} />
           </Link>
           <p className="text-sm text-muted-foreground mt-3">
             Your trusted shipping and purchasing partner. We make global shopping and shipping easy and affordable.

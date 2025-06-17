@@ -700,7 +700,7 @@ export default function ConsultingServicePage() {
             asChild
             variant="outline"
             size="lg"
-            className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+            className="border-primary-foreground text-primary hover:bg-primary-foreground"
           >
             <Link href="/faq">Learn More</Link>
           </Button>
