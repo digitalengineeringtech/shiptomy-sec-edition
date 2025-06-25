@@ -45,7 +45,7 @@ export default function ConsultingServicePage() {
           <div className="flex items-center justify-center">
             <div className="aspect-square w-full max-w-[400px] rounded-xl bg-muted flex flex-col items-center justify-center">
               <LineChart className="h-16 w-16 text-primary/40" />
-              <div className="text-muted-foreground">Consulting Service Illustration</div>
+              <div className="text-muted-foreground">Consulting Service</div>
             </div>
           </div>
         </div>
