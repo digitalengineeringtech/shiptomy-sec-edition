@@ -254,7 +254,7 @@ export function AIChatBot({ initialOpen = false }: ChatBotProps) {
               opacity: 1,
               y: 0,
               height: isMinimized ? "auto" : "500px",
-              width: isMinimized ? "300px" : "380px",
+              width: isMinimized ? "300px" : "330px",
             }}
             exit={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.2 }}
@@ -269,7 +269,7 @@ export function AIChatBot({ initialOpen = false }: ChatBotProps) {
                     <Image src="/myanmarexpresshub_2D_crop.png" alt="Ecommerce" width={32} height={32} />
                   </Avatar>
                   <div>
-                    <h3 className="font-medium">Myanmar Express Hub</h3>
+                    <h3 className="text-[14px] font-semibold">Myanmar Express Hub</h3>
                     {isTyping ? (
                       <p className="text-xs">AI is typing...</p>
                     ) : (
