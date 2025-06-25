@@ -172,7 +172,7 @@ export default function TermsPage() {
         </div>
 
         <div className="pt-4 text-center text-sm text-muted-foreground">
-          <p>Last updated: May 19, 2025</p>
+          <p>{t("TERMS.DATE")}</p>
         </div>
       </div>
     </div>

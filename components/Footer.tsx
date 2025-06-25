@@ -1,5 +1,5 @@
 "use client"
-import { Facebook, Instagram, Mail, MapPin, Phone, Twitter } from "lucide-react"
+import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, Twitter } from "lucide-react"
 import { useTranslations } from "next-intl";
 import Image from "next/image"
 import Link from "next/link"
@@ -82,9 +82,9 @@ export default function Footer() {
                 <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
+              <Link href="https://m.me/myanmarexpresshub" className="text-muted-foreground hover:text-foreground">
+                <MessageCircle className="h-5 w-5" />
+                <span className="sr-only">Messenger</span>
               </Link>
               <Link href="#" className="text-muted-foreground hover:text-foreground">
                 <Instagram className="h-5 w-5" />
