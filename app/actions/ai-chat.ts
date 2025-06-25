@@ -41,7 +41,6 @@ export async function generateAIResponse(
                         CONTACT INFORMATION:
                         - Phone: +95 9 123 456 789
                         - Email: info@myanmarexpresshub.com
-                        - Facebook Page: https://www.facebook.com/myanmarexpresshub
                         - Address: 123 Main Street, Yangon, Myanmar
                         - Business hours: Monday-Friday 9 AM - 5 PM, Saturday 9 AM - 12 PM
 
