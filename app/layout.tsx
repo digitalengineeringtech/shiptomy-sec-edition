@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import ChatWidget from "@/components/ChatWidget";
 import { AIChatBot } from "@/components/chat/ai-chat-bot"
+import { NextIntlClientProvider } from 'next-intl';
+// import { getLocale } from 'next-intl/server';
+import { IntlProviderWrapper } from "@/context/IntlProviderWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,20 +24,23 @@ export const metadata = {
   description: "Your Shipping Partner",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en" className="scroll-container">
       <body suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
-          <Navbar />
-          <section className="min-h-screen w-full ">
-            {children}
-          </section>
-          <Footer />
+          <IntlProviderWrapper>
+            <Navbar />
+            <section className="min-h-screen w-full px-5">
+              {children}
+            </section>
+            <Footer />
+          </IntlProviderWrapper>
         </Providers>
         {/* <script defer src="https://static.getbutton.io/widget/bundle.js?id=yZQpO" ></script> */}
         {/* <ChatWidget /> */}

@@ -14,6 +14,9 @@ import { contactSchema } from "@/validators/emails/createContactSchema"
 import { handleInputChange } from "@/utils/handleInputChange"
 import { toast } from "sonner"
 import router from "next/router"
+import ContactUs from "@/components/ContactUs"
+import { useTranslations } from "next-intl"
+import { useIntlApp } from "@/context/IntlProviderWrapper"
 
 type CreateContactFormSchema = z.infer<typeof contactSchema>;
 
@@ -55,6 +58,8 @@ export default function ChatPage() {
   //   }, 1000)
   // }
 
+  const t = useTranslations();
+  const { locale, changeLanguage } = useIntlApp();
 
 
   const [formData, setFormData] = useState<CreateContactFormSchema>({
@@ -167,25 +172,24 @@ export default function ChatPage() {
     }
   };
 
-  console.log(formData, "fffffffffffffff")
+  // console.log(formData, "fffffffffffffff")
 
   return (
     <div className="container mx-auto py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl">Chat With Us</h1>
+        <h1 className={`text-4xl font-bold tracking-tighter lg:text-5xl ${locale == "my" && "leading-14 md:pb-3"}`}>{t("CHAT.TITLE")}</h1>
         <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-          Get in touch with our customer service team for assistance with your shipping needs.
+          {t("CHAT.INTRO")}
         </p>
       </div>
 
-      <div className="mx-auto max-w-4xl">
-        <Card>
+      <div className="mx-auto max-w-2xl  flex flex-wrap justify-center items-center gap-24 ">
+        {/* <Card>
           <CardHeader>
             <CardTitle>Contact Form</CardTitle>
             <CardDescription>Send us a message and we'll get back to you as soon as possible.</CardDescription>
           </CardHeader>
           <form onSubmit={handleClickFormSubmit}>
-          {/* <form action="https://formsubmit.co/hsetpainghtoo8@gmail.com" method="POST"> */}
             <CardContent>
               {errorMessage ? <p className="text-red-500 py-2">{errorMessage}</p> : ""}
               <div className="grid grid-cols-2 gap-4">
@@ -266,7 +270,10 @@ export default function ChatPage() {
                 className="w-full hover:scale-100 active:scale-95 duration-200 mt-5">Submit</Button>
             </CardFooter>
           </form>
-        </Card>
+        </Card> */}
+
+        <ContactUs link="https://m.me/myanmarexpresshub" img="/messenger.png" title="Messenger" />
+        <ContactUs link="https://www.facebook.com/myanmarexpresshub/" img="/facebook.png" title="Facebook" />
       </div>
 
     </div>

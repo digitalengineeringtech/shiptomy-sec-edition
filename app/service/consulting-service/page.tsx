@@ -1,21 +1,25 @@
+'use client'
 import Link from "next/link"
 import { CheckCircle, LineChart, Users, Lightbulb, TrendingUp, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useTranslations } from "next-intl"
+import { useIntlApp } from "@/context/IntlProviderWrapper"
 
 export default function ConsultingServicePage() {
+  const t = useTranslations();
+  const { locale, changeLanguage } = useIntlApp();
   return (
     <div className="container py-12 max-sm:px-10 mx-auto">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           <LineChart className="mr-1 h-4 w-4" />
-          Professional Consulting
+          {t("CONSULTING_SERVICE.LABEL")}
         </div>
-        <h1 className="mt-4 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Consulting Service</h1>
+        <h1 className="mt-4 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">{t("CONSULTING_SERVICE.TITLE")}</h1>
         <p className="mx-auto mt-6 max-w-[800px] text-muted-foreground text-lg md:text-xl">
-          Expert guidance to help your business navigate international markets, optimize logistics, and expand your
-          global footprint.
+         {t("CONSULTING_SERVICE.INTRO")}
         </p>
       </div>
 
@@ -23,24 +27,24 @@ export default function ConsultingServicePage() {
       <div className="relative mb-20 overflow-hidden rounded-xl bg-gradient-to-r from-primary/20 to-primary/5 p-8 md:p-12">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12">
           <div className="flex flex-col justify-center">
-            <h2 className="text-2xl font-bold sm:text-3xl md:text-4xl">
-              Transform Your Business with Expert Consulting
+            <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl ${locale == "my" && "leading-14 max-sm:leading-10"}`}>
+              {t("CONSULTING_SERVICE.TRANSFORM.TRANSFORM")}
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Our team of experienced consultants provides tailored solutions to help your business overcome challenges,
-              identify opportunities, and achieve sustainable growth in the global market.
+              {t("CONSULTING_SERVICE.TRANSFORM.TRANSFORM_DESC")}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Button asChild size="lg">
-                <Link href="#packages">View Packages</Link>
+                <Link href="#packages">{t("CONSULTING_SERVICE.TRANSFORM.VIEW")}</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link href="/chat">Schedule Consultation</Link>
+                <Link href="/chat">{t("CONSULTING_SERVICE.TRANSFORM.SCHEDULE")}</Link>
               </Button>
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="aspect-square w-full max-w-[400px] rounded-xl bg-muted flex items-center justify-center">
+            <div className="aspect-square w-full max-w-[400px] rounded-xl bg-muted flex flex-col items-center justify-center">
+              <LineChart className="h-16 w-16 text-primary/40" />
               <div className="text-muted-foreground">Consulting Service Illustration</div>
             </div>
           </div>
@@ -50,26 +54,26 @@ export default function ConsultingServicePage() {
       {/* Services Offered */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Consulting Services</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t("CONSULTING_SERVICE.CONSULTING.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            Comprehensive consulting solutions tailored to your specific business needs
+            {t("CONSULTING_SERVICE.CONSULTING.INTRO")}
           </p>
         </div>
 
         <Tabs defaultValue="logistics" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
-            <TabsTrigger value="logistics">Logistics</TabsTrigger>
-            <TabsTrigger value="market-entry">Market Entry</TabsTrigger>
-            <TabsTrigger value="supply-chain">Supply Chain</TabsTrigger>
-            <TabsTrigger value="business">Business Strategy</TabsTrigger>
+          <TabsList className="grid w-full h-full grid-cols-2 md:grid-cols-4 ">
+            <TabsTrigger value="logistics">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TAB")}</TabsTrigger>
+            <TabsTrigger value="market-entry">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TAB")}</TabsTrigger>
+            <TabsTrigger value="supply-chain">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TAB")}</TabsTrigger>
+            <TabsTrigger value="business">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TAB")}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="logistics" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Logistics Consulting</CardTitle>
+                <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE")}</CardTitle>
                 <CardDescription>
-                  Optimize your shipping and logistics operations for maximum efficiency and cost savings
+                  {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -77,44 +81,44 @@ export default function ConsultingServicePage() {
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Route Optimization</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_1")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Identify the most efficient shipping routes to reduce transit time and costs
+                        {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_1")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Carrier Selection</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_2")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Evaluate and select the best carriers for your specific shipping needs
+                        {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_2")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Cost Reduction</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_3")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Identify opportunities to reduce shipping costs without sacrificing service quality
+                        {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_3")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Customs Compliance</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_4")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Ensure compliance with international customs regulations and documentation
+                        {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_4")}
                       </p>
                     </div>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href="/chat">Request Logistics Consultation</Link>
+                <Button asChild className="w-full max-sm:text-[12px]">
+                  <Link href="/chat">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.BTN")}</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -123,9 +127,9 @@ export default function ConsultingServicePage() {
           <TabsContent value="market-entry" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Market Entry Consulting</CardTitle>
+                <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE")}</CardTitle>
                 <CardDescription>
-                  Strategic guidance for entering new international markets successfully
+                  {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -133,44 +137,44 @@ export default function ConsultingServicePage() {
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Market Research</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_1")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Comprehensive analysis of target markets, competitors, and consumer behavior
+                        {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_1")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Regulatory Compliance</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_2")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Navigate complex regulatory environments and ensure legal compliance
+                        {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_2")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Partner Selection</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_3")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Identify and evaluate potential local partners, distributors, and suppliers
+                        {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_3")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Go-to-Market Strategy</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_4")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Develop effective strategies for product positioning, pricing, and distribution
+                        {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_4")}
                       </p>
                     </div>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href="/chat">Request Market Entry Consultation</Link>
+                <Button asChild className="w-full  max-sm:text-[12px]">
+                  <Link href="/chat">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.BTN")}</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -179,9 +183,9 @@ export default function ConsultingServicePage() {
           <TabsContent value="supply-chain" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Supply Chain Consulting</CardTitle>
+                <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE")}</CardTitle>
                 <CardDescription>
-                  Optimize your supply chain for resilience, efficiency, and sustainability
+                  {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -189,44 +193,44 @@ export default function ConsultingServicePage() {
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Supply Chain Mapping</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_1")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Comprehensive mapping and analysis of your entire supply chain
+                        {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_1")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Risk Assessment</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_2")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Identify vulnerabilities and develop mitigation strategies
+                        {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_2")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Inventory Optimization</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_3")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Balance inventory levels to minimize costs while meeting customer demands
+                        {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_3")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Sustainability Integration</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_4")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Incorporate sustainable practices into your supply chain operations
+                        {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_4")}
                       </p>
                     </div>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href="/chat">Request Supply Chain Consultation</Link>
+                <Button asChild className="w-full  max-sm:text-[12px]">
+                  <Link href="/chat">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.BTN")}</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -235,9 +239,9 @@ export default function ConsultingServicePage() {
           <TabsContent value="business" className="mt-6">
             <Card>
               <CardHeader>
-                <CardTitle>Business Strategy Consulting</CardTitle>
+                <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE")}</CardTitle>
                 <CardDescription>
-                  Comprehensive strategic guidance to drive growth and competitive advantage
+                  {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -245,44 +249,44 @@ export default function ConsultingServicePage() {
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Strategic Planning</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_1")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Develop clear, actionable business strategies aligned with your goals
+                        {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_1")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Growth Strategy</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_2")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Identify opportunities for expansion and develop implementation plans
+                        {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_2")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Operational Excellence</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_3")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Optimize business processes to improve efficiency and reduce costs
+                        {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_3")}
                       </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-2">
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
-                      <h3 className="font-medium">Digital Transformation</h3>
+                      <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_4")}</h3>
                       <p className="text-sm text-muted-foreground">
-                        Leverage technology to transform your business model and operations
+                        {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_4")}
                       </p>
                     </div>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button asChild className="w-full">
-                  <Link href="/chat">Request Business Strategy Consultation</Link>
+                <Button asChild className="w-full max-sm:text-[12px]">
+                  <Link href="/chat">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.BTN")}</Link>
                 </Button>
               </CardFooter>
             </Card>
@@ -293,9 +297,9 @@ export default function ConsultingServicePage() {
       {/* Why Choose Us */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Why Choose Our Consulting Services</h2>
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.CHOOSE.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            What sets our consulting services apart from the rest
+            {t("CONSULTING_SERVICE.CHOOSE.INTRO")}
           </p>
         </div>
 
@@ -303,12 +307,11 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Users className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Expert Consultants</CardTitle>
+              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.EXPERT_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Our team consists of industry veterans with extensive experience in international business, logistics,
-                and market development across Asia and beyond.
+                {t("CONSULTING_SERVICE.CHOOSE.EXPERT_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -316,12 +319,11 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Lightbulb className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Tailored Solutions</CardTitle>
+              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.TAILORED_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                We don't believe in one-size-fits-all approaches. Every solution is customized to address your specific
-                business challenges and objectives.
+                {t("CONSULTING_SERVICE.CHOOSE.TAILORED_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -329,12 +331,11 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <TrendingUp className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Results-Driven</CardTitle>
+              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.RESULT_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                Our success is measured by your success. We focus on delivering tangible results that drive growth and
-                improve your bottom line.
+                {t("CONSULTING_SERVICE.CHOOSE.RESULT_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -342,12 +343,11 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Clock className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Timely Delivery</CardTitle>
+              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.TIMELY_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                We understand the importance of time in business. Our consulting projects are delivered on schedule
-                without compromising on quality.
+                {t("CONSULTING_SERVICE.CHOOSE.TIMELY_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -355,13 +355,11 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md md:col-span-2 lg:col-span-2">
             <CardHeader className="pb-2">
               <LineChart className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>Comprehensive Approach</CardTitle>
+              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.APPROACH_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">
-                We take a holistic view of your business, considering all aspects from operations to strategy, ensuring
-                that our solutions address both immediate needs and long-term goals. Our team works closely with you at
-                every step, providing clear communication and transparency throughout the consulting process.
+                {t("CONSULTING_SERVICE.CHOOSE.APPROACH_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -371,46 +369,44 @@ export default function ConsultingServicePage() {
       {/* Our Process */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Our Consulting Process</h2>
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.PROCESS.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            A structured approach to delivering exceptional consulting services
+            {t("CONSULTING_SERVICE.PROCESS.INTRO")}
           </p>
         </div>
 
         <div className="relative">
           {/* Process timeline line */}
-          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-muted md:left-1/2 md:-ml-0.5"></div>
+          <div className="max-md:hidden absolute left-4 top-0 bottom-0 w-0.5 bg-muted md:left-1/2 md:-ml-0.5"></div>
 
           <div className="space-y-12">
             {/* Step 1 */}
             <div className="relative grid md:grid-cols-2">
               <div className="flex md:justify-end md:pr-12">
                 <div className="max-w-md md:text-right">
-                  <div className="mb-2 text-xl font-bold">1. Discovery & Assessment</div>
+                  <div className="mb-2 text-xl font-bold">1. {t("CONSULTING_SERVICE.PROCESS.DISCOVERY_TITLE")}</div>
                   <p className="text-muted-foreground">
-                    We begin by understanding your business, challenges, and objectives through in-depth discussions and
-                    data analysis. This phase establishes the foundation for our consulting engagement.
+                    {t("CONSULTING_SERVICE.PROCESS.DISCOVERY_DESC")}
                   </p>
                 </div>
               </div>
-              <div className="absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
+              <div className="max-md:hidden absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
                 1
               </div>
-              <div className="mt-8 md:mt-0 md:pl-12"></div>
+              <div className="max-md:hidden mt-8 md:mt-0 md:pl-12"></div>
             </div>
 
             {/* Step 2 */}
             <div className="relative grid md:grid-cols-2">
               <div className="hidden md:block md:pr-12"></div>
-              <div className="absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
+              <div className="max-md:hidden absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
                 2
               </div>
-              <div className="mt-8 md:mt-0 md:pl-12">
+              <div className="  md:pl-12">
                 <div className="max-w-md">
-                  <div className="mb-2 text-xl font-bold">2. Strategy Development</div>
+                  <div className="mb-2 text-xl font-bold">2. {t("CONSULTING_SERVICE.PROCESS.STRATEGY_TITLE")}</div>
                   <p className="text-muted-foreground">
-                    Based on our assessment, we develop a tailored strategy and action plan to address your specific
-                    needs. This includes clear objectives, timelines, and key performance indicators.
+                    {t("CONSULTING_SERVICE.PROCESS.STRATEGY_DESC")}
                   </p>
                 </div>
               </div>
@@ -420,31 +416,29 @@ export default function ConsultingServicePage() {
             <div className="relative grid md:grid-cols-2">
               <div className="flex md:justify-end md:pr-12">
                 <div className="max-w-md md:text-right">
-                  <div className="mb-2 text-xl font-bold">3. Implementation Support</div>
+                  <div className="mb-2 text-xl font-bold">3. {t("CONSULTING_SERVICE.PROCESS.SUPPORT_TITLE")}</div>
                   <p className="text-muted-foreground">
-                    We don't just provide recommendations; we work alongside your team to implement solutions, providing
-                    guidance, training, and support throughout the process.
+                    {t("CONSULTING_SERVICE.PROCESS.SUPPORT_DESC")}
                   </p>
                 </div>
               </div>
-              <div className="absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
+              <div className="max-md:hidden absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
                 3
               </div>
-              <div className="mt-8 md:mt-0 md:pl-12"></div>
+              <div className="max-md:hidden mt-8 md:mt-0 md:pl-12"></div>
             </div>
 
             {/* Step 4 */}
             <div className="relative grid md:grid-cols-2">
               <div className="hidden md:block md:pr-12"></div>
-              <div className="absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
+              <div className="max-md:hidden absolute left-4 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground md:left-1/2 md:-ml-4">
                 4
               </div>
-              <div className="mt-8 md:mt-0 md:pl-12">
+              <div className="  md:pl-12">
                 <div className="max-w-md">
-                  <div className="mb-2 text-xl font-bold">4. Monitoring & Optimization</div>
+                  <div className="mb-2 text-xl font-bold">4. {t("CONSULTING_SERVICE.PROCESS.MONITOR_TITLE")}</div>
                   <p className="text-muted-foreground">
-                    We continuously monitor progress, measure results against KPIs, and make necessary adjustments to
-                    ensure optimal outcomes and sustainable success.
+                    {t("CONSULTING_SERVICE.PROCESS.MONITOR_DESC")}
                   </p>
                 </div>
               </div>
@@ -456,9 +450,9 @@ export default function ConsultingServicePage() {
       {/* Consulting Packages */}
       <div id="packages" className="mb-20 scroll-mt-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Consulting Packages</h2>
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t("CONSULTING_SERVICE.PACKAGES.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            Flexible consulting options designed to meet your specific needs and budget
+            {t("CONSULTING_SERVICE.PACKAGES.INTRO")}
           </p>
         </div>
 
@@ -466,8 +460,8 @@ export default function ConsultingServicePage() {
           <Card className="relative overflow-hidden border-muted">
             <div className="absolute inset-x-0 top-0 h-2 bg-muted"></div>
             <CardHeader>
-              <CardTitle>Basic Package</CardTitle>
-              <CardDescription>For small businesses and startups</CardDescription>
+              <CardTitle>{t("CONSULTING_SERVICE.PACKAGES.BASIC.TITLE")}</CardTitle>
+              <CardDescription>{t("CONSULTING_SERVICE.PACKAGES.BASIC.DESC")}</CardDescription>
               <div className="mt-4">
                 <span className="text-4xl font-bold">$1,500</span>
                 <span className="text-muted-foreground"> / project</span>
@@ -477,29 +471,29 @@ export default function ConsultingServicePage() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Initial business assessment</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_1")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Basic strategy recommendations</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_2")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>1 focus area (logistics or market entry)</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_3")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>2 weeks of implementation support</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_4")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>1 follow-up consultation</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_5")}</span>
                 </li>
               </ul>
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full">
-                <Link href="/chat">Get Started</Link>
+                <Link href="/chat">{t("GET_STARTED")}</Link>
               </Button>
             </CardFooter>
           </Card>
@@ -510,8 +504,8 @@ export default function ConsultingServicePage() {
               <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">
                 Popular
               </div>
-              <CardTitle>Professional Package</CardTitle>
-              <CardDescription>For growing businesses</CardDescription>
+              <CardTitle>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.TITLE")}</CardTitle>
+              <CardDescription>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.DESC")}</CardDescription>
               <div className="mt-4">
                 <span className="text-4xl font-bold">$3,500</span>
                 <span className="text-muted-foreground"> / project</span>
@@ -521,33 +515,33 @@ export default function ConsultingServicePage() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Comprehensive business assessment</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_1")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Detailed strategy & implementation plan</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_2")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>2 focus areas of your choice</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_3")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>1 month of implementation support</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_4")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Bi-weekly progress meetings</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_5")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>3 months of email support</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_6")}</span>
                 </li>
               </ul>
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full">
-                <Link href="/chat">Get Started</Link>
+                <Link href="/chat">{t("GET_STARTED")}</Link>
               </Button>
             </CardFooter>
           </Card>
@@ -555,8 +549,8 @@ export default function ConsultingServicePage() {
           <Card className="relative overflow-hidden border-muted">
             <div className="absolute inset-x-0 top-0 h-2 bg-muted"></div>
             <CardHeader>
-              <CardTitle>Enterprise Package</CardTitle>
-              <CardDescription>For established businesses</CardDescription>
+              <CardTitle>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.TITLE")}</CardTitle>
+              <CardDescription>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.DESC")}</CardDescription>
               <div className="mt-4">
                 <span className="text-4xl font-bold">$7,500</span>
                 <span className="text-muted-foreground"> / project</span>
@@ -566,46 +560,46 @@ export default function ConsultingServicePage() {
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>In-depth business & market analysis</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_1")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Comprehensive strategy development</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_2")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>All focus areas included</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_3")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>3 months of implementation support</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_4")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Weekly progress meetings</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_5")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>6 months of priority support</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_6")}</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span>Dedicated consultant</span>
+                  <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_7")}</span>
                 </li>
               </ul>
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full">
-                <Link href="/chat">Get Started</Link>
+                <Link href="/chat">{t("GET_STARTED")}</Link>
               </Button>
             </CardFooter>
           </Card>
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-muted-foreground">Need a custom solution? Contact us for a tailored consulting package.</p>
+          <p className="text-muted-foreground">{t("CONSULTING_SERVICE.PACKAGES.INFO")}</p>
           <Button asChild variant="outline" className="mt-4">
-            <Link href="/chat">Request Custom Package</Link>
+            <Link href="/chat">{t("CONSULTING_SERVICE.PACKAGES.BTN")}</Link>
           </Button>
         </div>
       </div>
@@ -613,9 +607,9 @@ export default function ConsultingServicePage() {
       {/* Testimonials */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Client Success Stories</h2>
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.STORIES.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            See how our consulting services have helped businesses like yours
+            {t("CONSULTING_SERVICE.STORIES.INTRO")}
           </p>
         </div>
 
@@ -628,15 +622,13 @@ export default function ConsultingServicePage() {
                 </div>
                 <div>
                   <CardTitle className="text-base">Asia Exports Ltd.</CardTitle>
-                  <CardDescription>Manufacturing</CardDescription>
+                  <CardDescription>{t("CONSULTING_SERVICE.STORIES.TYPE_1")}</CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <p className="italic text-muted-foreground">
-                "Myanmar Express hub's consulting team helped us optimize our supply chain, reducing shipping costs by
-                22% and cutting delivery times by almost a week. Their expertise in international logistics was
-                invaluable."
+                {t("CONSULTING_SERVICE.STORIES.REVIEW_1")}
               </p>
             </CardContent>
           </Card>
@@ -649,15 +641,13 @@ export default function ConsultingServicePage() {
                 </div>
                 <div>
                   <CardTitle className="text-base">Global Tech Solutions</CardTitle>
-                  <CardDescription>Technology</CardDescription>
+                  <CardDescription>{t("CONSULTING_SERVICE.STORIES.TYPE_2")}</CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <p className="italic text-muted-foreground">
-                "The market entry strategy developed by Myanmar Express hub's consultants was instrumental in our
-                successful expansion into Southeast Asian markets. Their local knowledge and strategic guidance exceeded
-                our expectations."
+                {t("CONSULTING_SERVICE.STORIES.REVIEW_2")}
               </p>
             </CardContent>
           </Card>
@@ -670,15 +660,13 @@ export default function ConsultingServicePage() {
                 </div>
                 <div>
                   <CardTitle className="text-base">Sunrise Foods</CardTitle>
-                  <CardDescription>Food & Beverage</CardDescription>
+                  <CardDescription>{t("CONSULTING_SERVICE.STORIES.TYPE_3")}</CardDescription>
                 </div>
               </div>
             </CardHeader>
             <CardContent>
               <p className="italic text-muted-foreground">
-                "Working with Myanmar Express hub transformed our business operations. Their consulting team identified
-                critical inefficiencies in our logistics network and implemented solutions that improved our bottom line
-                significantly."
+                {t("CONSULTING_SERVICE.STORIES.REVIEW_3")}
               </p>
             </CardContent>
           </Card>
@@ -687,14 +675,13 @@ export default function ConsultingServicePage() {
 
       {/* CTA */}
       <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Ready to transform your business?</h2>
+        <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.READY.TITLE")}</h2>
         <p className="mx-auto mt-4 max-w-[700px]">
-          Schedule a free 30-minute consultation with one of our expert consultants to discuss your business challenges
-          and how we can help you overcome them.
+          {t("CONSULTING_SERVICE.READY.DESC")}
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="lg" variant="secondary">
-            <Link href="/chat">Schedule Consultation</Link>
+            <Link href="/chat">{t("CONSULTING_SERVICE.READY.BTN")}</Link>
           </Button>
           <Button
             asChild
@@ -702,7 +689,7 @@ export default function ConsultingServicePage() {
             size="lg"
             className="border-primary-foreground text-primary hover:bg-primary-foreground"
           >
-            <Link href="/faq">Learn More</Link>
+            <Link href="/faq">{t("LEARN_MORE")}</Link>
           </Button>
         </div>
       </div>

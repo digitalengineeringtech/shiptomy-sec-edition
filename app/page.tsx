@@ -6,10 +6,14 @@ import Link from "next/link"
 import Image from "next/image"
 import ServiceCards from '@/components/ServiceCards'
 import { CheckCircle, LineChart, ShoppingBag, Truck } from 'lucide-react'
+import { useTranslations } from 'next-intl'
+import { useIntlApp } from '@/context/IntlProviderWrapper'
 
 export default function Home() {
   // const count = useAppSelector((state) => state.counter.value)
   // const dispatch = useAppDispatch()
+  const { locale, changeLanguage } = useIntlApp();
+  const t = useTranslations();
 
   return (
     <div className=" w-full flex flex-col justify-center items-center">
@@ -23,20 +27,20 @@ export default function Home() {
       <section className=" from-muted/50 to-background py-24">
         <div className="container flex flex-col items-center gap-8 text-center md:gap-12">
           <div className="space-y-4">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-              Your Global Business Partner
+            <h1 className={`leading-15 font-bold text-6xl max-md:text-5xl ${locale === "my" && "max-sm:text-4xl md:text-5xl md:leading-17"}`}>
+              {t("HOME.TITLE")}
+              {/* Your Global Business Partner */}
             </h1>
             <p className="mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl">
-              Myanmar Express Hub makes international shopping, shipping, and business expansion easy, affordable, and
-              reliable.
+              {t("HOME.INTRO")}
             </p>
           </div>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button asChild size="lg">
-              <Link href="/service">Explore Our Services</Link>
+              <Link href="/service">{t("EXPLORE")}</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="/chat">Contact Us</Link>
+              <Link href="/chat">{t("CONTACT_US")}</Link>
             </Button>
           </div>
           <div className="relative h-[300px] w-full max-w-[1000px] overflow-hidden rounded-xl sm:h-[400px] md:h-[500px] bg-gradient-to-r from-primary/10 to-primary/5 flex items-center justify-center">
@@ -55,27 +59,27 @@ export default function Home() {
 
       {/* Services Section */}
       <section className=" text-center w-[90%]">
-        <h1 className="text-5xl font-bold mt-7">
-          Our Services
+        <h1 className={` font-bold mt-7 text-5xl max-md:text-4xl ${locale === "my" && "max-sm:text-3xl md:text-4xl pb-1 md:leading-17"}`}>
+          {t("HOME.SERVICES.TITLE")}
         </h1>
         <p className="text-xl text-muted-foreground my-4 px-10">
-          We offer a range of services to meet your international shopping and shipping needs.
+          {t("HOME.SERVICES.DESC")}
         </p>
 
         <ServiceCards />
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-[#F1F5F9] py-20 px-10">
+      <section className="bg-[#F1F5F9] py-20 px-10 rounded-xl">
         <div className="container">
           <div className="mb-12 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">How It Works</h2>
+            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3"}`}>{t("HOME.HOW_IT_WORKS.TITLE")}</h2>
             <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-              Simple steps to get your international purchases delivered to your doorstep.
+              {t("HOME.HOW_IT_WORKS.DESC")}
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-4">
-            <div className="flex flex-col items-center text-center">
+          <div className="grid gap-8 md:grid-cols-3 mx-auto">
+            {/* <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 1
               </div>
@@ -83,30 +87,30 @@ export default function Home() {
               <p className="mt-2 text-sm text-muted-foreground">
                 Create an account and get your personal shipping address.
               </p>
+            </div> */}
+            <div className="flex flex-col items-center text-center">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
+                1
+              </div>
+              <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.SHOP_TITLE")}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{t("HOME.HOW_IT_WORKS.SHOP_DESC")}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 2
               </div>
-              <h3 className="mt-4 text-xl font-bold">Shop</h3>
-              <p className="mt-2 text-sm text-muted-foreground">Shop online or request us to purchase items for you.</p>
+              <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.SHIP_TITLE")}</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                {t("HOME.HOW_IT_WORKS.SHIP_DESC")}
+              </p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 3
               </div>
-              <h3 className="mt-4 text-xl font-bold">Ship</h3>
+              <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.RECEIVE_TITLE")}</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                We receive your packages and prepare them for international shipping.
-              </p>
-            </div>
-            <div className="flex flex-col items-center text-center">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
-                4
-              </div>
-              <h3 className="mt-4 text-xl font-bold">Receive</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Your packages are delivered to your doorstep in Myanmar.
+                {t("HOME.HOW_IT_WORKS.RECEIVE_DESC")}
               </p>
             </div>
           </div>
@@ -117,9 +121,9 @@ export default function Home() {
       <section className="py-24">
         <div className="container">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Why Choose Us</h2>
+            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3"}`}>{t("HOME.WHY_CHOOSE_US.TITLE")}</h2>
             <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground text-lg">
-              What sets Myanmar Express Hub apart from other service providers
+              {t("HOME.WHY_CHOOSE_US.DESC")}
             </p>
           </div>
 
@@ -128,54 +132,54 @@ export default function Home() {
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Reliable Service</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.RELIABLE_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                We deliver on our promises with consistent, dependable service you can count on.
+                {t("HOME.WHY_CHOOSE_US.RELIABLE_DESC")}
               </p>
             </div>
             <div className="flex flex-col items-start">
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Competitive Pricing</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.COMPETITIVE_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                Our rates are transparent and competitive, with no hidden fees or surprises.
+                {t("HOME.WHY_CHOOSE_US.COMPETITIVE_DESC")}
               </p>
             </div>
             <div className="flex flex-col items-start">
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Expert Team</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.EXPERT_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                Our experienced professionals provide knowledgeable guidance and support.
+                {t("HOME.WHY_CHOOSE_US.EXPERT_DESC")}
               </p>
             </div>
             <div className="flex flex-col items-start">
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Global Network</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.GLOBAL_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                Our extensive international network ensures efficient service worldwide.
+                {t("HOME.WHY_CHOOSE_US.GLOBAL_DESC")}
               </p>
             </div>
             <div className="flex flex-col items-start">
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Customer-Focused</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.CUSTOMER_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                We prioritize your satisfaction with personalized service and support.
+                {t("HOME.WHY_CHOOSE_US.CUSTOMER_DESC")}
               </p>
             </div>
             <div className="flex flex-col items-start">
               <div className="mb-4 rounded-full bg-primary/10 p-3">
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold">Innovative Solutions</h3>
+              <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.INNOVATIVE_TITLE")}</h3>
               <p className="mt-2 text-muted-foreground">
-                We continuously improve our services to meet evolving customer needs.
+                {t("HOME.WHY_CHOOSE_US.INNOVATIVE_DESC")}
               </p>
             </div>
           </div>
@@ -186,14 +190,13 @@ export default function Home() {
       <section className="py-12 w-full">
         <div className="container mx-auto">
           <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
-            <h2 className="text-white text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
+            <h2 className={`text-white text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("HOME.READY.TITLE")}</h2>
             <p className="mx-auto mt-4 max-w-[700px] text-lg text-white">
-              Join thousands of satisfied customers who trust Myanmar Express Hub for their international business
-              needs.
+              {t("HOME.READY.DESC")}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button asChild size="lg" variant="secondary" className='text-primary hover:scale-105 active:scale-95 duration-200'>
-                <Link href="/service">Explore Our Services</Link>
+                <Link href="/service">{t("EXPLORE")}</Link>
               </Button>
               <Button
                 asChild
@@ -201,7 +204,7 @@ export default function Home() {
                 size="lg"
                 className="hover:scale-105 active:scale-95 duration-200 border-primary-foreground text-primary hover:bg-primary-foreground hover:text-primary"
               >
-                <Link href="/chat">Contact Us</Link>
+                <Link href="/chat">{t("CONTACT_US")}</Link>
               </Button>
             </div>
           </div>

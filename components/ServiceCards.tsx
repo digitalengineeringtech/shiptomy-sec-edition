@@ -4,8 +4,12 @@ import { ShoppingBag, ArrowRight, Package, Truck, LineChart } from "lucide-react
 import { Button } from "./ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card"
 import Link from "next/link"
+import { useTranslations } from "next-intl"
+import { useIntlApp } from "@/context/IntlProviderWrapper"
 
 const ServiceCards = () => {
+    const t = useTranslations();
+      const { locale, changeLanguage } = useIntlApp();
     return (
         <div className="text-start my-10 mb-20">
             {/* <div className="mb-12 text-center">
@@ -18,20 +22,19 @@ const ServiceCards = () => {
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <ShoppingBag className="mb-2 h-10 w-10 text-primary" />
-                        <CardTitle className="text-black font-bold text-3xl">Buy For Me</CardTitle>
-                        <CardDescription className="text-md">We purchase products on your behalf from international retailers.</CardDescription>
+                        <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.BFM_TITLE")}</CardTitle>
+                        <CardDescription className="text-md">{t("HOME.SERVICES.BFM_DESC_1")}</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <p className="text-md text-muted-foreground">
-                            Access products from retailers that don't ship to Myanmar. We handle the purchase and delivery to our
-                            warehouse.
+                            {t("HOME.SERVICES.BFM_DESC_2")}
                         </p>
 
                     </CardContent>
                     <CardFooter>
                         <Link href="/service/buy-for-me" className="flex items-center gap-1 w-full">
                             <Button className="mt-4 px-0 w-full bg-primary hover:scale-105 active:scale-95 duration-200">
-                                Learn more <ArrowRight className="h-4 w-4" />
+                                {t("LEARN_MORE")} <ArrowRight className="h-4 w-4" />
                             </Button>
                         </Link>
                     </CardFooter>
@@ -39,21 +42,20 @@ const ServiceCards = () => {
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <LineChart className="mb-2 h-10 w-10 text-primary" />
-                        <CardTitle className="text-black font-bold text-3xl">Consulting Service</CardTitle>
+                        <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.CS_TITLE")}</CardTitle>
                         <CardDescription className="text-base">
-                            Expert guidance for international business growth.
+                            {t("HOME.SERVICES.CS_DESC_1")}
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <p className="text-muted-foreground">
-                            Get professional consulting to optimize your logistics, enter new markets, and expand your global
-                            footprint.
+                            {t("HOME.SERVICES.CS_DESC_2")}
                         </p>
                     </CardContent>
                     <CardFooter>
                         <Link href="/service/consulting-service" className="flex items-center gap-1 w-full">
                             <Button className="mt-4 px-0 w-full bg-primary hover:scale-105 active:scale-95 duration-200">
-                                Learn more <ArrowRight className="h-4 w-4" />
+                                {t("LEARN_MORE")} <ArrowRight className="h-4 w-4" />
                             </Button>
                         </Link>
                     </CardFooter>
@@ -61,18 +63,18 @@ const ServiceCards = () => {
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <Truck className="mb-2 h-10 w-10 text-primary" />
-                        <CardTitle className="text-black font-bold text-3xl">Ship for me</CardTitle>
-                        <CardDescription className="text-md">We provide reliable international shipping for your packages.</CardDescription>
+                        <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.SFM_TITLE")}</CardTitle>
+                        <CardDescription className="text-md">{t("HOME.SERVICES.SFM_DESC_1")}</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <p className="text-md text-muted-foreground">
-                            Already have products? We'll ship them to Myanmar with tracking, insurance, and customs clearance.
+                            {t("HOME.SERVICES.SFM_DESC_2")}
                         </p>
                     </CardContent>
                     <CardFooter>
                         <Link href="/service/ship-for-me" className="flex items-center gap-1 w-full">
                             <Button className="mt-4 px-0 w-full bg-primary hover:scale-105 active:scale-95 duration-200">
-                                Learn more <ArrowRight className="h-4 w-4" />
+                                {t("LEARN_MORE")} <ArrowRight className="h-4 w-4" />
                             </Button>
                         </Link>
                     </CardFooter>

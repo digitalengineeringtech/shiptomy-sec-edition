@@ -1,14 +1,19 @@
+"use client"
 import Link from "next/link"
 import { ArrowRight, ShoppingBag, Truck, LineChart } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useTranslations } from "next-intl"
+import { useIntlApp } from "@/context/IntlProviderWrapper"
 
 export default function ServicePage() {
+  const t = useTranslations();
+    const { locale, changeLanguage } = useIntlApp();
   return (
     <div className="container mx-auto py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">Our Services</h1>
+        <h1 className={` font-bold tracking-tighter text-6xl max-md:text-5xl ${locale === "my" && "max-sm:text-4xl md:text-5xl md:leading-17"}`}>{t("OUR_SERVICES.TITLE")}</h1>
         <p className="mx-auto mt-6 max-w-[800px] text-muted-foreground text-lg md:text-xl">
-          Myanmar Express hub offers comprehensive shipping, purchasing, and consulting solutions to meet your needs.
+          {t("OUR_SERVICES.INTRO")}
         </p>
       </div>
 
@@ -21,33 +26,32 @@ export default function ServicePage() {
           <div className="flex flex-col justify-center">
             <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <ShoppingBag className="mr-1 h-4 w-4" />
-              Personal Shopping
+              {t("OUR_SERVICES.BUY_FOR_ME.LABEL")}
             </div>
-            <h2 className="mt-4 text-3xl font-bold">Buy For Me</h2>
+            <h2 className="mt-4 text-3xl font-bold">{t("OUR_SERVICES.BUY_FOR_ME.TITLE")}</h2>
             <p className="mt-4 text-muted-foreground">
-              Our Buy For Me service allows you to purchase products from international retailers that don't ship to
-              Myanmar. We handle the entire process from purchase to delivery.
+              {t("OUR_SERVICES.BUY_FOR_ME.DESC")}
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Access to retailers that don't ship internationally</span>
+                <span>{t("OUR_SERVICES.BUY_FOR_ME.LIST_1")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Secure payment processing</span>
+                <span>{t("OUR_SERVICES.BUY_FOR_ME.LIST_2")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Product verification before shipping</span>
+                <span>{t("OUR_SERVICES.BUY_FOR_ME.LIST_3")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Consolidation of multiple purchases</span>
+                <span>{t("OUR_SERVICES.BUY_FOR_ME.LIST_4")}</span>
               </li>
             </ul>
             <Button asChild className="mt-8 w-fit">
-              <Link href="/service/buy-for-me">Learn More</Link>
+              <Link href="/service/buy-for-me">{t("LEARN_MORE")}</Link>
             </Button>
           </div>
         </div>
@@ -60,33 +64,32 @@ export default function ServicePage() {
           <div className="flex flex-col justify-center">
             <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <LineChart className="mr-1 h-4 w-4" />
-              Professional Consulting
+              {t("OUR_SERVICES.CONSULTING_SERVICE.LABEL")}
             </div>
-            <h2 className="mt-4 text-3xl font-bold">Consulting Service</h2>
+            <h2 className="mt-4 text-3xl font-bold">{t("OUR_SERVICES.CONSULTING_SERVICE.TITLE")}</h2>
             <p className="mt-4 text-muted-foreground">
-              Our consulting services provide expert guidance to help your business navigate international markets,
-              optimize logistics, and expand your global footprint.
+              {t("OUR_SERVICES.CONSULTING_SERVICE.DESC")}
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Logistics and supply chain optimization</span>
+                <span>{t("OUR_SERVICES.CONSULTING_SERVICE.LIST_1")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Market entry strategy development</span>
+                <span>{t("OUR_SERVICES.CONSULTING_SERVICE.LIST_2")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Business growth and expansion planning</span>
+                <span>{t("OUR_SERVICES.CONSULTING_SERVICE.LIST_3")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Customized solutions for your business needs</span>
+                <span>{t("OUR_SERVICES.CONSULTING_SERVICE.LIST_4")}</span>
               </li>
             </ul>
             <Button asChild className="mt-8 w-fit">
-              <Link href="/service/consulting-service">Learn More</Link>
+              <Link href="/service/consulting-service">{t("LEARN_MORE")}</Link>
             </Button>
           </div>
         </div>
@@ -99,33 +102,32 @@ export default function ServicePage() {
           <div className="flex flex-col justify-center">
             <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
               <Truck className="mr-1 h-4 w-4" />
-              International Shipping
+              {t("OUR_SERVICES.SHIP_FOR_ME.LABEL")}
             </div>
-            <h2 className="mt-4 text-3xl font-bold">Ship for me</h2>
+            <h2 className="mt-4 text-3xl font-bold">{t("OUR_SERVICES.SHIP_FOR_ME.TITLE")}</h2>
             <p className="mt-4 text-muted-foreground">
-              Our Ship for me service provides reliable international shipping for your packages. We handle customs
-              clearance, tracking, and delivery to your doorstep in Myanmar.
+              {t("OUR_SERVICES.SHIP_FOR_ME.DESC")}
             </p>
             <ul className="mt-6 space-y-3">
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Personal shipping address in multiple countries</span>
+                <span>{t("OUR_SERVICES.SHIP_FOR_ME.LIST_1")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Package consolidation to save on shipping</span>
+                <span>{t("OUR_SERVICES.SHIP_FOR_ME.LIST_2")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Real-time tracking and notifications</span>
+                <span>{t("OUR_SERVICES.SHIP_FOR_ME.LIST_3")}</span>
               </li>
               <li className="flex items-start gap-3">
                 <ArrowRight className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
-                <span>Customs clearance and documentation</span>
+                <span>{t("OUR_SERVICES.SHIP_FOR_ME.LIST_4")}</span>
               </li>
             </ul>
             <Button asChild className="mt-8 w-fit">
-              <Link href="/service/ship-for-me">Learn More</Link>
+              <Link href="/service/ship-for-me">{t("LEARN_MORE")}</Link>
             </Button>
           </div>
         </div>
@@ -134,9 +136,9 @@ export default function ServicePage() {
       {/* Service Comparison */}
       <div className="mt-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Compare Our Services</h2>
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("OUR_SERVICES.COMPARE.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
-            Find the right service for your specific needs
+            {t("OUR_SERVICES.COMPARE.DESC")}
           </p>
         </div>
 
@@ -144,57 +146,57 @@ export default function ServicePage() {
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b">
-                <th className="py-4 px-4 text-left font-medium">Features</th>
-                <th className="py-4 px-4 text-center font-medium">Buy For Me</th>
-                <th className="py-4 px-4 text-center font-medium">Consulting Service</th>
-                <th className="py-4 px-4 text-center font-medium">Ship for me</th>
+                <th className="py-4 px-4 text-left font-medium">{t("OUR_SERVICES.COMPARE.HEADER_1")}</th>
+                <th className="py-4 px-4 text-center font-medium">{t("OUR_SERVICES.COMPARE.HEADER_2")}</th>
+                <th className="py-4 px-4 text-center font-medium">{t("OUR_SERVICES.COMPARE.HEADER_3")}</th>
+                <th className="py-4 px-4 text-center font-medium">{t("OUR_SERVICES.COMPARE.HEADER_4")}</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b">
-                <td className="py-4 px-4">International Purchasing</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_1")}</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">-</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">International Shipping</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_2")}</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">Business Strategy</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_3")}</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">Logistics Optimization</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_4")}</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">Product Verification</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_5")}</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">Customs Clearance</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_6")}</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
               </tr>
               <tr className="border-b">
-                <td className="py-4 px-4">Market Entry Support</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_7")}</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
               </tr>
               <tr>
-                <td className="py-4 px-4">Package Consolidation</td>
+                <td className="py-4 px-4">{t("OUR_SERVICES.COMPARE.ROW_8")}</td>
                 <td className="py-4 px-4 text-center">✓</td>
                 <td className="py-4 px-4 text-center">-</td>
                 <td className="py-4 px-4 text-center">✓</td>
@@ -207,13 +209,13 @@ export default function ServicePage() {
       {/* CTA Section */}
       <div className="mt-20">
         <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
-          <h2 className="text-white text-3xl font-bold tracking-tighter sm:text-4xl">Ready to get started?</h2>
+          <h2 className={`text-white text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("OUR_SERVICES.READY.TITLE")}</h2>
           <p className="mx-auto mt-4 max-w-[700px] text-white">
-            Choose the service that best fits your needs or contact us for a customized solution.
+            {t("OUR_SERVICES.READY.DESC")}
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg"  className="text-primary bg-white hover:bg-white hover:scale-105 active:scale-95 duration-200">
-              <Link href="/chat">Contact Us</Link>
+              <Link href="/chat">{t("CONTACT_US")}</Link>
             </Button>
             <Button
               asChild
@@ -221,7 +223,7 @@ export default function ServicePage() {
               size="lg"
               className="border-primary-foreground text-primary hover:text-primary hover:scale-105 active:scale-95 duration-200"
             >
-              <Link href="/faq">Read FAQs</Link>
+              <Link href="/faq">{t("READ")}</Link>
             </Button>
           </div>
         </div>
