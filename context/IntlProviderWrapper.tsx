@@ -32,7 +32,6 @@ export const IntlProviderWrapper = ({ children }: { children: ReactNode }) => {
         setLocale(lng);
     };
 
-    console.log(locale, "lllllllllll")
 
     return (
         <IntlContext.Provider value={{ locale, changeLanguage }}>
