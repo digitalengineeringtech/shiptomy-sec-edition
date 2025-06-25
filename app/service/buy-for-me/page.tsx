@@ -1,42 +1,55 @@
+"use client"
 import Link from "next/link"
 import { CheckCircle, ShoppingBag } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { useTranslations } from "next-intl"
+import { useIntlApp } from "@/context/IntlProviderWrapper"
 
 export default function BuyForMePage() {
+  const t = useTranslations();
+    const { locale, changeLanguage } = useIntlApp();
   return (
     <div className="container mx-auto max-sm:px-10 py-12">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           <ShoppingBag className="mr-1 h-4 w-4" />
-          Personal Shopping Service
+          {t("BUY_FOR_ME.LABEL")}
         </div>
-        <h1 className="mt-4 text-4xl font-bold tracking-tighter sm:text-5xl">Buy For Me</h1>
+        <h1 className={`mt-4 text-4xl lg:text-5xl font-bold tracking-tighter ${locale == "my" && "leading-14 pb-1"}`}>{t("BUY_FOR_ME.TITLE")}</h1>
         <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
-          We purchase products on your behalf from international retailers that don't ship to Myanmar.
+          {t("BUY_FOR_ME.INTRO")}
         </p>
       </div>
 
       {/* Hero Image */}
       <div className="relative mb-16 aspect-video overflow-hidden rounded-lg bg-muted flex items-center justify-center">
-        <Image src="/Ecommerce web page-rafiki.svg" alt="Ecommerce" width={700} height={700}/>
+        {/* <Image src="/Ecommerce web page-rafiki.svg" alt="Ecommerce" width={700} height={700}/> */}
+
+
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex gap-6">
+            <ShoppingBag className="h-16 w-16 text-primary/40" />
+          </div>
+          <p className="text-muted-foreground text-lg">Buy For Me Service</p>
+        </div>
       </div>
 
       {/* How It Works */}
       <div className="mb-16">
-        <h2 className="mb-8 text-3xl font-bold">How It Works</h2>
+        <h2 className={`mb-8 text-3xl font-bold ${locale == "my" && "leading-12"}`}>{t("BUY_FOR_ME.HOW_IT_WORKS.TITLE")}</h2>
         <div className="grid gap-8 md:grid-cols-4">
           <Card>
             <CardHeader>
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 1
               </div>
-              <CardTitle className="mt-2 font-bold text-xl">Request</CardTitle>
+              <CardTitle className="mt-2 font-bold text-xl">{t("BUY_FOR_ME.HOW_IT_WORKS.REQUEST_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Submit a purchase request with product details, including URL, size, color, and quantity.
+                {t("BUY_FOR_ME.HOW_IT_WORKS.REQUEST_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -45,11 +58,11 @@ export default function BuyForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 2
               </div>
-              <CardTitle className="mt-2 font-bold text-xl">Quote</CardTitle>
+              <CardTitle className="mt-2 font-bold text-xl">{t("BUY_FOR_ME.HOW_IT_WORKS.QUOTE_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                We provide a detailed quote including product cost, shipping, and our service fee.
+                {t("BUY_FOR_ME.HOW_IT_WORKS.QUOTE_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -58,11 +71,11 @@ export default function BuyForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 3
               </div>
-              <CardTitle className="mt-2 font-bold text-xl">Purchase</CardTitle>
+              <CardTitle className="mt-2 font-bold text-xl">{t("BUY_FOR_ME.HOW_IT_WORKS.PURCHASE_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                After your payment, we purchase the product and have it shipped to our warehouse.
+                {t("BUY_FOR_ME.HOW_IT_WORKS.PURCHASE_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -71,11 +84,11 @@ export default function BuyForMePage() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 4
               </div>
-              <CardTitle className="mt-2 font-bold text-xl">Delivery</CardTitle>
+              <CardTitle className="mt-2 font-bold text-xl">{t("BUY_FOR_ME.HOW_IT_WORKS.DELIVERY_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                We inspect the product, repackage if needed, and ship it to your address in Myanmar.
+                {t("BUY_FOR_ME.HOW_IT_WORKS.DELIVERY_DESC")}
               </p>
             </CardContent>
           </Card>
@@ -84,59 +97,59 @@ export default function BuyForMePage() {
 
       {/* Benefits */}
       <div className="mb-16">
-        <h2 className="mb-8 text-3xl font-bold">Benefits</h2>
+        <h2 className="mb-8 text-3xl font-bold">{t("BUY_FOR_ME.BENEFITS.TITLE")}</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Access Global Brands</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.ACCESS_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Shop from retailers that don't ship to Myanmar or have regional restrictions.
+                {t("BUY_FOR_ME.BENEFITS.ACCESS_DESC")}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Secure Payments</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.SECURE_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                No need for international credit cards or payment methods.
+                {t("BUY_FOR_ME.BENEFITS.SECURE_DESC")}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Product Verification</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.PRODUCT_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                We check all products for damage and authenticity before shipping.
+                {t("BUY_FOR_ME.BENEFITS.PRODUCT_DESC")}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Consolidation</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.CONSOLIDATION_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Combine multiple purchases into one shipment to save on shipping costs.
+                {t("BUY_FOR_ME.BENEFITS.CONSOLIDATION_DESC")}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Customs Clearance</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.CUSTOM_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                We handle all customs documentation and import procedures.
+                {t("BUY_FOR_ME.BENEFITS.CUSTOM_DESC")}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-4">
             <CheckCircle className="h-6 w-6 text-primary" />
             <div>
-              <h3 className="font-bold">Doorstep Delivery</h3>
+              <h3 className="font-bold">{t("BUY_FOR_ME.BENEFITS.DOORSTEP_TITLE")}</h3>
               <p className="mt-1 text-sm text-muted-foreground">
-                Your purchases are delivered directly to your address in Myanmar.
+                {t("BUY_FOR_ME.BENEFITS.DOORSTEP_DESC")}
               </p>
             </div>
           </div>
@@ -145,36 +158,36 @@ export default function BuyForMePage() {
 
       {/* Pricing */}
       <div className="mb-16">
-        <h2 className="mb-8 text-3xl font-bold">Pricing</h2>
+        <h2 className="mb-8 text-3xl font-bold">{t("BUY_FOR_ME.PRICING.TITLE")}</h2>
         <div className="grid gap-8 md:grid-cols-3">
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-semibold">Service Fee</CardTitle>
+              <CardTitle className="text-3xl font-semibold">{t("BUY_FOR_ME.PRICING.TITLE_1")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-5xl font-bold">10%</p>
+              <p className={`text-5xl font-bold ${locale == "my" && "pb-3"}`}>{t("BUY_FOR_ME.PRICING.INFO_1")}</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Of the product's purchase price, with a minimum fee of $5.
+                {t("BUY_FOR_ME.PRICING.DESC_1")}
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-semibold">Payment Processing</CardTitle>
+              <CardTitle className={`text-3xl font-semibold ${locale == "my" && "leading-12"}`}>{t("BUY_FOR_ME.PRICING.TITLE_2")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-5xl font-bold">3%</p>
-              <p className="mt-2 text-sm text-muted-foreground">Additional fee for international payment processing.</p>
+              <p className={`text-5xl font-bold ${locale == "my" && "pb-3"}`}>{t("BUY_FOR_ME.PRICING.INFO_2")}</p>
+              <p className="mt-2 text-sm text-muted-foreground">{t("BUY_FOR_ME.PRICING.DESC_2")}</p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle className="text-3xl font-semibold">Shipping</CardTitle>
+              <CardTitle className="text-3xl font-semibold">{t("BUY_FOR_ME.PRICING.TITLE_3")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-5xl font-bold">Varies</p>
+              <p className={`text-4xl font-bold ${locale == "my" && "pb-3"}`}>{t("BUY_FOR_ME.PRICING.INFO_3")}</p>
               <p className="mt-2 text-sm text-muted-foreground">
-                Based on weight, dimensions, and shipping method selected.
+                {t("BUY_FOR_ME.PRICING.DESC_3")}
               </p>
             </CardContent>
           </Card>
@@ -183,16 +196,16 @@ export default function BuyForMePage() {
 
       {/* CTA */}
       <div className="rounded-lg bg-primary p-8 text-center md:p-12">
-        <h2 className="text-3xl text-white font-bold">Ready to start shopping?</h2>
+        <h2 className={`text-3xl text-white font-bold ${locale == "my" && "leading-12"}`}>{t("BUY_FOR_ME.READY.TITLE")}</h2>
         <p className="mx-auto text-white mt-4 max-w-[600px] ">
-          Submit your first purchase request today and experience the convenience of our Buy For Me service.
+          {t("BUY_FOR_ME.READY.DESC")}
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Button asChild size="lg" className="bg-white hover:bg-white text-primary hover:scale-105 active:scale-95 duration-200">
-            <Link href="/chat">Submit a Request</Link>
+            <Link href="/chat">{t("SUBMIT")}</Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="text-primary hover:text-primary hover:scale-105 active:scale-95 duration-200">
-            <Link href="/faq">Read FAQs</Link>
+            <Link href="/faq">{t("READ")}</Link>
           </Button>
         </div>
       </div>
