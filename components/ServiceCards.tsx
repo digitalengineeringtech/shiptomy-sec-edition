@@ -23,10 +23,10 @@ const ServiceCards = () => {
                     <CardHeader className="pb-3">
                         <ShoppingBag className="mb-2 h-10 w-10 text-primary" />
                         <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.BFM_TITLE")}</CardTitle>
-                        <CardDescription className="text-md">{t("HOME.SERVICES.BFM_DESC_1")}</CardDescription>
+                        <CardDescription className={`text-md ${locale == "my" && "max-sm:text-[14px] leading-6"}`}>{t("HOME.SERVICES.BFM_DESC_1")}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-md text-muted-foreground">
+                        <p className={`text-md ${locale == "my" && "max-sm:text-[14px] leading-6"} text-muted-foreground`}>
                             {t("HOME.SERVICES.BFM_DESC_2")}
                         </p>
 
@@ -42,13 +42,13 @@ const ServiceCards = () => {
                 <Card className="border-none shadow-md transition-all hover:shadow-lg">
                     <CardHeader className="pb-3">
                         <LineChart className="mb-2 h-10 w-10 text-primary" />
-                        <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.CS_TITLE")}</CardTitle>
-                        <CardDescription className="text-base">
+                        <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && " pb-4"}`}>{t("HOME.SERVICES.CS_TITLE")}</CardTitle>
+                        <CardDescription className={`text-base ${locale == "my" && "max-sm:text-[14px] leading-6"}`}>
                             {t("HOME.SERVICES.CS_DESC_1")}
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-muted-foreground">
+                        <p className={`${locale == "my" && "max-sm:text-[14px] leading-6"} text-muted-foreground`}>
                             {t("HOME.SERVICES.CS_DESC_2")}
                         </p>
                     </CardContent>
@@ -64,10 +64,10 @@ const ServiceCards = () => {
                     <CardHeader className="pb-3">
                         <Truck className="mb-2 h-10 w-10 text-primary" />
                         <CardTitle className={`text-black font-bold text-3xl ${locale == "my" && "leading-12 pb-4"}`}>{t("HOME.SERVICES.SFM_TITLE")}</CardTitle>
-                        <CardDescription className="text-md">{t("HOME.SERVICES.SFM_DESC_1")}</CardDescription>
+                        <CardDescription className={`text-md ${locale == "my" && "max-sm:text-[14px] leading-6"}`}>{t("HOME.SERVICES.SFM_DESC_1")}</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-md text-muted-foreground">
+                        <p className={`text-md ${locale == "my" && "max-sm:text-[14px] leading-6"} text-muted-foreground`}>
                             {t("HOME.SERVICES.SFM_DESC_2")}
                         </p>
                     </CardContent>

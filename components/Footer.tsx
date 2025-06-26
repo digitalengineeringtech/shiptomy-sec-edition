@@ -13,7 +13,7 @@ export default function Footer() {
           <Link href="/">
             <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={250} height={10} />
           </Link>
-          <p className="text-sm text-muted-foreground mt-3">
+          <p className="text-sm text-muted-foreground leading-6 mt-3">
             {t("FOOTER.DESC")}
           </p>
         </div>
