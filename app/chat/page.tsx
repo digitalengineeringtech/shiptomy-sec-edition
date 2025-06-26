@@ -175,7 +175,7 @@ export default function ChatPage() {
   // console.log(formData, "fffffffffffffff")
 
   return (
-    <div className="container mx-auto py-12">
+    <div className="container mx-auto py-12 px-5">
       <div className="mb-12 text-center">
         <h1 className={`text-4xl font-bold tracking-tighter lg:text-5xl ${locale == "my" && "leading-14 md:pb-3"}`}>{t("CHAT.TITLE")}</h1>
         <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">

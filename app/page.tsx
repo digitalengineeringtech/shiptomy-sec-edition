@@ -16,7 +16,7 @@ export default function Home() {
   const t = useTranslations();
 
   return (
-    <div className=" w-full flex flex-col justify-center items-center">
+    <div className=" w-full flex flex-col justify-center items-center px-5">
       {/* <h1>Redux Toolkit Counter (TS)</h1>
       <h2>{count}</h2>
       <Button onClick={() => dispatch(increment())}>Increment</Button>
