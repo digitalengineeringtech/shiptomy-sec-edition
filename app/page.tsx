@@ -16,7 +16,7 @@ export default function Home() {
   const t = useTranslations();
 
   return (
-    <div className=" w-full flex flex-col justify-center items-center">
+    <div className=" w-full flex flex-col justify-center items-center px-5">
       {/* <h1>Redux Toolkit Counter (TS)</h1>
       <h2>{count}</h2>
       <Button onClick={() => dispatch(increment())}>Increment</Button>
@@ -27,11 +27,11 @@ export default function Home() {
       <section className=" from-muted/50 to-background py-24">
         <div className="container flex flex-col items-center gap-8 text-center md:gap-12">
           <div className="space-y-4">
-            <h1 className={`leading-15 font-bold text-6xl max-md:text-5xl ${locale === "my" && "max-sm:text-4xl md:text-5xl md:leading-17"}`}>
+            <h1 className={`leading-15 max-sm:leading-9 font-bold text-6xl max-md:text-5xl max-sm:text-[34px]  ${locale === "my" && " md:text-5xl md:leading-17 max-sm:leading-14"}`}>
               {t("HOME.TITLE")}
               {/* Your Global Business Partner */}
             </h1>
-            <p className="mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl">
+            <p className={`mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl ${locale === "my" && "max-sm:text-[16px] leading-8 max-sm:leading-7"}`}>
               {t("HOME.INTRO")}
             </p>
           </div>
@@ -50,7 +50,7 @@ export default function Home() {
                 <Truck className="h-16 w-16 text-primary/40" />
                 <LineChart className="h-16 w-16 text-primary/40" />
               </div>
-              <p className="text-muted-foreground text-lg">Global shipping and business services</p>
+              <p className="text-muted-foreground text-lg max-sm:text-sm">Global shipping and business services</p>
             </div>
           </div>
         </div>
@@ -59,10 +59,10 @@ export default function Home() {
 
       {/* Services Section */}
       <section className=" text-center w-[90%]">
-        <h1 className={` font-bold mt-7 text-5xl max-md:text-4xl ${locale === "my" && "max-sm:text-3xl md:text-4xl pb-1 md:leading-17"}`}>
+        <h1 className={` font-bold mt-7 text-5xl max-md:text-4xl ${locale === "my" && "max-sm:text-[34px] md:text-4xl pb-1 md:leading-17"}`}>
           {t("HOME.SERVICES.TITLE")}
         </h1>
-        <p className="text-xl text-muted-foreground my-4 px-10">
+        <p className="text-xl max-sm:text-[16px] leading-7 text-muted-foreground my-4 ">
           {t("HOME.SERVICES.DESC")}
         </p>
 
@@ -73,8 +73,8 @@ export default function Home() {
       <section className="bg-[#F1F5F9] py-20 px-10 rounded-xl">
         <div className="container">
           <div className="mb-12 text-center">
-            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3"}`}>{t("HOME.HOW_IT_WORKS.TITLE")}</h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3 max-sm:pb-0 max-sm:text-[25px]"}`}>{t("HOME.HOW_IT_WORKS.TITLE")}</h2>
+            <p className="mx-auto mt-4 max-w-[700px] leading-7 text-muted-foreground">
               {t("HOME.HOW_IT_WORKS.DESC")}
             </p>
           </div>
@@ -93,14 +93,14 @@ export default function Home() {
                 1
               </div>
               <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.SHOP_TITLE")}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{t("HOME.HOW_IT_WORKS.SHOP_DESC")}</p>
+              <p className={`mt-2 text-sm text-muted-foreground ${locale == "my" && "leading-6"}`}>{t("HOME.HOW_IT_WORKS.SHOP_DESC")}</p>
             </div>
             <div className="flex flex-col items-center text-center">
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
                 2
               </div>
               <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.SHIP_TITLE")}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className={`mt-2 text-sm text-muted-foreground ${locale == "my" && "leading-6"}`}>
                 {t("HOME.HOW_IT_WORKS.SHIP_DESC")}
               </p>
             </div>
@@ -109,7 +109,7 @@ export default function Home() {
                 3
               </div>
               <h3 className="mt-4 text-xl font-bold">{t("HOME.HOW_IT_WORKS.RECEIVE_TITLE")}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className={`mt-2 text-sm text-muted-foreground ${locale == "my" && "leading-6"}`}>
                 {t("HOME.HOW_IT_WORKS.RECEIVE_DESC")}
               </p>
             </div>
@@ -121,8 +121,8 @@ export default function Home() {
       <section className="py-24">
         <div className="container">
           <div className="mb-16 text-center">
-            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3"}`}>{t("HOME.WHY_CHOOSE_US.TITLE")}</h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground text-lg">
+            <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl ${locale == "my" && "leading-12 pb-3 max-sm:pb-0 max-sm:text-2xl"}`}>{t("HOME.WHY_CHOOSE_US.TITLE")}</h2>
+            <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground text-lg ${locale == "my" && "max-sm:text-[16px] leading-7"}`}>
               {t("HOME.WHY_CHOOSE_US.DESC")}
             </p>
           </div>
@@ -133,7 +133,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.RELIABLE_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.RELIABLE_DESC")}
               </p>
             </div>
@@ -142,7 +142,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.COMPETITIVE_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.COMPETITIVE_DESC")}
               </p>
             </div>
@@ -151,7 +151,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.EXPERT_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.EXPERT_DESC")}
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.GLOBAL_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.GLOBAL_DESC")}
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.CUSTOMER_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.CUSTOMER_DESC")}
               </p>
             </div>
@@ -178,7 +178,7 @@ export default function Home() {
                 <CheckCircle className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-xl font-bold">{t("HOME.WHY_CHOOSE_US.INNOVATIVE_TITLE")}</h3>
-              <p className="mt-2 text-muted-foreground">
+              <p className={`mt-2 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-6"}`}>
                 {t("HOME.WHY_CHOOSE_US.INNOVATIVE_DESC")}
               </p>
             </div>
@@ -190,8 +190,8 @@ export default function Home() {
       <section className="py-12 w-full">
         <div className="container mx-auto">
           <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
-            <h2 className={`text-white text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("HOME.READY.TITLE")}</h2>
-            <p className="mx-auto mt-4 max-w-[700px] text-lg text-white">
+            <h2 className={`text-white text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12 max-sm:text-[22px] max-sm:leading-10"}`}>{t("HOME.READY.TITLE")}</h2>
+            <p className={`mx-auto mt-4 max-w-[700px] text-lg max-sm:text-sm text-white ${locale == "my" && "leading-6"}`}>
               {t("HOME.READY.DESC")}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">

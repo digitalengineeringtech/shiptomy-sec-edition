@@ -148,7 +148,7 @@ const Navbar = () => {
     <header className="sticky top-0 z-[10000] backdrop-blur-md shadow-md w-full h-[70px] flex lg:justify-around justify-between items-center px-6">
       <div>
         <Link href="/">
-          <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={180} height={50} />
+          <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={180} height={50} className="max-sm:pr-5"/>
         </Link>
       </div>
 

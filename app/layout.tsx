@@ -36,7 +36,7 @@ export default async function RootLayout({
         <Providers>
           <IntlProviderWrapper>
             <Navbar />
-            <section className="min-h-screen w-full px-5">
+            <section className="min-h-screen w-full">
               {children}
             </section>
             <Footer />

@@ -7,10 +7,10 @@ export default function TermsPage() {
   const t = useTranslations();
   const { locale, changeLanguage } = useIntlApp();
   return (
-    <div className="container max-sm:px-10 mx-auto py-12">
+    <div className="container max-sm:px-5 mx-auto py-12">
       <div className="mb-12 text-center">
-        <h1 className={`text-4xl font-bold tracking-tighter sm:text-5xl ${locale == "my" && "leading-14 md:pb-3"}`}>{t("TERMS.TITLE")}</h1>
-        <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl">
+        <h1 className={`text-4xl font-bold tracking-tighter sm:text-5xl ${locale == "my" && "leading-14 max-sm:text-[29px] md:pb-3"}`}>{t("TERMS.TITLE")}</h1>
+        <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground md:text-xl ${locale == "my" && "leading-8 max-sm:leading-7"}`}>
           {t("TERMS.INTRO")}
         </p>
       </div>
@@ -19,7 +19,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_1")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_1")}
           </p>
         </div>
@@ -27,7 +27,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_2")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_2_1")}
             <br />
             <br />
@@ -44,7 +44,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_3")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_3_1")}
             <br />
             <br />{t("TERMS.DESC_3_2")}
@@ -59,7 +59,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_4")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_4_1")}
             <br />
             <br />
@@ -70,7 +70,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_5")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_5_1")}
             <br />
             <br />
@@ -84,7 +84,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_6")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_6_1")}
             <br />
             <br />
@@ -98,7 +98,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_7")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_7_1")}
             <br />
             <br />{t("TERMS.DESC_7_2")}
@@ -119,7 +119,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_8")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_8_1")}
             <br />
             <br />
@@ -133,7 +133,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_9")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_9")}
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_10")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_10")}
           </p>
         </div>
@@ -149,7 +149,7 @@ export default function TermsPage() {
         <div>
           <h2 className={`text-2xl font-bold ${locale == "my" && "leading-10"}`}>{t("TERMS.TERM_11")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_11")}
           </p>
         </div>
@@ -157,7 +157,7 @@ export default function TermsPage() {
         <div>
           <h2 className="text-2xl font-bold">{t("TERMS.TERM_12")}</h2>
           <Separator className="my-4" />
-          <p className="text-muted-foreground">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
             {t("TERMS.DESC_12")}
             <br />
             <br />

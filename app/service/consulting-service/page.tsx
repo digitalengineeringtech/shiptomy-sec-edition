@@ -11,14 +11,14 @@ export default function ConsultingServicePage() {
   const t = useTranslations();
   const { locale, changeLanguage } = useIntlApp();
   return (
-    <div className="container py-12 max-sm:px-10 mx-auto">
+    <div className="container py-12 max-sm:px-5 mx-auto">
       <div className="mb-12 text-center">
         <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
           <LineChart className="mr-1 h-4 w-4" />
           {t("CONSULTING_SERVICE.LABEL")}
         </div>
         <h1 className="mt-4 text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">{t("CONSULTING_SERVICE.TITLE")}</h1>
-        <p className="mx-auto mt-6 max-w-[800px] text-muted-foreground text-lg md:text-xl">
+        <p className={`mx-auto mt-6 max-w-[800px] text-muted-foreground text-lg md:text-xl max-sm:text-[16px] ${locale == "my" && "leading-8 max-sm:leading-7"}`}>
          {t("CONSULTING_SERVICE.INTRO")}
         </p>
       </div>
@@ -27,10 +27,10 @@ export default function ConsultingServicePage() {
       <div className="relative mb-20 overflow-hidden rounded-xl bg-gradient-to-r from-primary/20 to-primary/5 p-8 md:p-12">
         <div className="grid gap-8 md:grid-cols-2 md:gap-12">
           <div className="flex flex-col justify-center">
-            <h2 className={`text-2xl font-bold sm:text-3xl md:text-4xl ${locale == "my" && "leading-14 max-sm:leading-10"}`}>
+            <h2 className={`font-bold text-2xl sm:text-3xl md:text-4xl ${locale == "my" && "leading-14 max-sm:text-xl max-sm:leading-10"}`}>
               {t("CONSULTING_SERVICE.TRANSFORM.TRANSFORM")}
             </h2>
-            <p className="mt-4 text-muted-foreground">
+            <p className={`mt-4 text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-7"}`}>
               {t("CONSULTING_SERVICE.TRANSFORM.TRANSFORM_DESC")}
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -54,8 +54,8 @@ export default function ConsultingServicePage() {
       {/* Services Offered */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t("CONSULTING_SERVICE.CONSULTING.TITLE")}</h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "max-sm:text-2xl"}`}>{t("CONSULTING_SERVICE.CONSULTING.TITLE")}</h2>
+          <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground ${locale == "my" && "leading-7"}`}>
             {t("CONSULTING_SERVICE.CONSULTING.INTRO")}
           </p>
         </div>
@@ -72,7 +72,7 @@ export default function ConsultingServicePage() {
             <Card>
               <CardHeader>
                 <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE")}</CardTitle>
-                <CardDescription>
+                <CardDescription className={`${locale == "my" && "leading-7 pt-1"}`}>
                   {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC")}
                 </CardDescription>
               </CardHeader>
@@ -82,7 +82,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_1")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_1")}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_2")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_2")}
                       </p>
                     </div>
@@ -100,7 +100,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_3")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_3")}
                       </p>
                     </div>
@@ -109,7 +109,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.TITLE_4")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.LOGISTICS.DESC_4")}
                       </p>
                     </div>
@@ -128,7 +128,7 @@ export default function ConsultingServicePage() {
             <Card>
               <CardHeader>
                 <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE")}</CardTitle>
-                <CardDescription>
+                <CardDescription className={`${locale == "my" && "leading-7 pt-1"}`}>
                   {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC")}
                 </CardDescription>
               </CardHeader>
@@ -138,7 +138,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_1")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_1")}
                       </p>
                     </div>
@@ -147,7 +147,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_2")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_2")}
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_3")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_3")}
                       </p>
                     </div>
@@ -165,7 +165,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.TITLE_4")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.MARKET_ENTRY.DESC_4")}
                       </p>
                     </div>
@@ -184,7 +184,7 @@ export default function ConsultingServicePage() {
             <Card>
               <CardHeader>
                 <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE")}</CardTitle>
-                <CardDescription>
+                <CardDescription className={`${locale == "my" && "leading-7 pt-1"}`}>
                   {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC")}
                 </CardDescription>
               </CardHeader>
@@ -194,7 +194,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_1")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_1")}
                       </p>
                     </div>
@@ -203,7 +203,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_2")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_2")}
                       </p>
                     </div>
@@ -212,7 +212,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_3")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_3")}
                       </p>
                     </div>
@@ -221,7 +221,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.TITLE_4")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.SUPPLY_CHAIN.DESC_4")}
                       </p>
                     </div>
@@ -240,7 +240,7 @@ export default function ConsultingServicePage() {
             <Card>
               <CardHeader>
                 <CardTitle>{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE")}</CardTitle>
-                <CardDescription>
+                <CardDescription className={`${locale == "my" && "leading-7 pt-1"}`}>
                   {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC")}
                 </CardDescription>
               </CardHeader>
@@ -250,7 +250,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_1")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_1")}
                       </p>
                     </div>
@@ -259,7 +259,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_2")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_2")}
                       </p>
                     </div>
@@ -268,7 +268,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_3")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_3")}
                       </p>
                     </div>
@@ -277,7 +277,7 @@ export default function ConsultingServicePage() {
                     <CheckCircle className="mt-1 h-5 w-5 text-primary flex-shrink-0" />
                     <div>
                       <h3 className="font-medium">{t("CONSULTING_SERVICE.CONSULTING.STRATEGY.TITLE_4")}</h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={`text-sm text-muted-foreground ${locale == "my" && "leading-7 pt-1"}`}>
                         {t("CONSULTING_SERVICE.CONSULTING.STRATEGY.DESC_4")}
                       </p>
                     </div>
@@ -297,8 +297,8 @@ export default function ConsultingServicePage() {
       {/* Why Choose Us */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.CHOOSE.TITLE")}</h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "max-sm:text-2xl leading-10"}`}>{t("CONSULTING_SERVICE.CHOOSE.TITLE")}</h2>
+          <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground ${locale == "my" && "leading-7"}`}>
             {t("CONSULTING_SERVICE.CHOOSE.INTRO")}
           </p>
         </div>
@@ -307,10 +307,10 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Users className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.EXPERT_TITLE")}</CardTitle>
+              <CardTitle className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-[20px]">{t("CONSULTING_SERVICE.CHOOSE.EXPERT_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground  ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                 {t("CONSULTING_SERVICE.CHOOSE.EXPERT_DESC")}
               </p>
             </CardContent>
@@ -319,10 +319,10 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Lightbulb className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.TAILORED_TITLE")}</CardTitle>
+              <CardTitle className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-[20px]">{t("CONSULTING_SERVICE.CHOOSE.TAILORED_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                 {t("CONSULTING_SERVICE.CHOOSE.TAILORED_DESC")}
               </p>
             </CardContent>
@@ -331,10 +331,10 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <TrendingUp className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.RESULT_TITLE")}</CardTitle>
+              <CardTitle className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-[20px]">{t("CONSULTING_SERVICE.CHOOSE.RESULT_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                 {t("CONSULTING_SERVICE.CHOOSE.RESULT_DESC")}
               </p>
             </CardContent>
@@ -343,10 +343,10 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md">
             <CardHeader className="pb-2">
               <Clock className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.TIMELY_TITLE")}</CardTitle>
+              <CardTitle className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-[20px]">{t("CONSULTING_SERVICE.CHOOSE.TIMELY_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                 {t("CONSULTING_SERVICE.CHOOSE.TIMELY_DESC")}
               </p>
             </CardContent>
@@ -355,10 +355,10 @@ export default function ConsultingServicePage() {
           <Card className="border-none shadow-md md:col-span-2 lg:col-span-2">
             <CardHeader className="pb-2">
               <LineChart className="h-10 w-10 text-primary mb-2" />
-              <CardTitle>{t("CONSULTING_SERVICE.CHOOSE.APPROACH_TITLE")}</CardTitle>
+              <CardTitle className="text-2xl max-lg:text-xl max-md:text-lg max-sm:text-[20px]">{t("CONSULTING_SERVICE.CHOOSE.APPROACH_TITLE")}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                 {t("CONSULTING_SERVICE.CHOOSE.APPROACH_DESC")}
               </p>
             </CardContent>
@@ -369,8 +369,8 @@ export default function ConsultingServicePage() {
       {/* Our Process */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.PROCESS.TITLE")}</h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12 max-sm:text-2xl"}`}>{t("CONSULTING_SERVICE.PROCESS.TITLE")}</h2>
+          <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground ${locale == "my" && "leading-7"}`}>
             {t("CONSULTING_SERVICE.PROCESS.INTRO")}
           </p>
         </div>
@@ -385,7 +385,7 @@ export default function ConsultingServicePage() {
               <div className="flex md:justify-end md:pr-12">
                 <div className="max-w-md md:text-right">
                   <div className="mb-2 text-xl font-bold">1. {t("CONSULTING_SERVICE.PROCESS.DISCOVERY_TITLE")}</div>
-                  <p className="text-muted-foreground">
+                   <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                     {t("CONSULTING_SERVICE.PROCESS.DISCOVERY_DESC")}
                   </p>
                 </div>
@@ -405,7 +405,7 @@ export default function ConsultingServicePage() {
               <div className="  md:pl-12">
                 <div className="max-w-md">
                   <div className="mb-2 text-xl font-bold">2. {t("CONSULTING_SERVICE.PROCESS.STRATEGY_TITLE")}</div>
-                  <p className="text-muted-foreground">
+                   <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                     {t("CONSULTING_SERVICE.PROCESS.STRATEGY_DESC")}
                   </p>
                 </div>
@@ -417,7 +417,7 @@ export default function ConsultingServicePage() {
               <div className="flex md:justify-end md:pr-12">
                 <div className="max-w-md md:text-right">
                   <div className="mb-2 text-xl font-bold">3. {t("CONSULTING_SERVICE.PROCESS.SUPPORT_TITLE")}</div>
-                  <p className="text-muted-foreground">
+                   <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                     {t("CONSULTING_SERVICE.PROCESS.SUPPORT_DESC")}
                   </p>
                 </div>
@@ -436,8 +436,8 @@ export default function ConsultingServicePage() {
               </div>
               <div className="  md:pl-12">
                 <div className="max-w-md">
-                  <div className="mb-2 text-xl font-bold">4. {t("CONSULTING_SERVICE.PROCESS.MONITOR_TITLE")}</div>
-                  <p className="text-muted-foreground">
+                  <div className={`mb-2 text-xl font-bold ${locale == 'my' && "leading-8"}`}>4. {t("CONSULTING_SERVICE.PROCESS.MONITOR_TITLE")}</div>
+                   <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-[14px] leading-7"}`}>
                     {t("CONSULTING_SERVICE.PROCESS.MONITOR_DESC")}
                   </p>
                 </div>
@@ -450,8 +450,8 @@ export default function ConsultingServicePage() {
       {/* Consulting Packages */}
       <div id="packages" className="mb-20 scroll-mt-20">
         <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{t("CONSULTING_SERVICE.PACKAGES.TITLE")}</h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == 'my' && "max-sm:text-2xl"}`}>{t("CONSULTING_SERVICE.PACKAGES.TITLE")}</h2>
+          <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground ${locale == "my" && "leading-7"}`}>
             {t("CONSULTING_SERVICE.PACKAGES.INTRO")}
           </p>
         </div>
@@ -468,7 +468,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
+              <ul className="space-y-2 max-sm:text-[13px]">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>{t("CONSULTING_SERVICE.PACKAGES.BASIC.LIST_1")}</span>
@@ -512,7 +512,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
+              <ul className="space-y-2 max-sm:text-[13px]">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>{t("CONSULTING_SERVICE.PACKAGES.PROFESSIONAL.LIST_1")}</span>
@@ -557,7 +557,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-2">
+              <ul className="space-y-2 max-sm:text-[13px]">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-primary" />
                   <span>{t("CONSULTING_SERVICE.PACKAGES.ENTERPRISE.LIST_1")}</span>
@@ -597,8 +597,8 @@ export default function ConsultingServicePage() {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-muted-foreground">{t("CONSULTING_SERVICE.PACKAGES.INFO")}</p>
-          <Button asChild variant="outline" className="mt-4">
+          <p className={`text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-7"}`}>{t("CONSULTING_SERVICE.PACKAGES.INFO")}</p>
+          <Button asChild variant="outline" className={`mt-4 ${locale == "my" && "max-sm:text-[12px]"}`}>
             <Link href="/chat">{t("CONSULTING_SERVICE.PACKAGES.BTN")}</Link>
           </Button>
         </div>
@@ -607,8 +607,8 @@ export default function ConsultingServicePage() {
       {/* Testimonials */}
       <div className="mb-20">
         <div className="mb-12 text-center">
-          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.STORIES.TITLE")}</h2>
-          <p className="mx-auto mt-4 max-w-[700px] text-muted-foreground">
+          <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12 max-sm:text-2xl"}`}>{t("CONSULTING_SERVICE.STORIES.TITLE")}</h2>
+          <p className={`mx-auto mt-4 max-w-[700px] text-muted-foreground ${locale == "my" && "leading-7"}`}>
             {t("CONSULTING_SERVICE.STORIES.INTRO")}
           </p>
         </div>
@@ -627,7 +627,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="italic text-muted-foreground">
+              <p className={`italic text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-7"}`}>
                 {t("CONSULTING_SERVICE.STORIES.REVIEW_1")}
               </p>
             </CardContent>
@@ -646,7 +646,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="italic text-muted-foreground">
+              <p className={`italic text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-7"}`}>
                 {t("CONSULTING_SERVICE.STORIES.REVIEW_2")}
               </p>
             </CardContent>
@@ -665,7 +665,7 @@ export default function ConsultingServicePage() {
               </div>
             </CardHeader>
             <CardContent>
-              <p className="italic text-muted-foreground">
+              <p className={`italic text-muted-foreground ${locale == "my" && "max-sm:text-sm leading-7"}`}>
                 {t("CONSULTING_SERVICE.STORIES.REVIEW_3")}
               </p>
             </CardContent>
@@ -675,8 +675,8 @@ export default function ConsultingServicePage() {
 
       {/* CTA */}
       <div className="rounded-xl bg-gradient-to-r from-primary to-primary/80 p-8 text-center text-primary-foreground md:p-12">
-        <h2 className={`text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12"}`}>{t("CONSULTING_SERVICE.READY.TITLE")}</h2>
-        <p className="mx-auto mt-4 max-w-[700px]">
+        <h2 className={`text-white text-3xl font-bold tracking-tighter sm:text-4xl ${locale == "my" && "leading-12 max-sm:text-[22px] max-sm:leading-10"}`}>{t("CONSULTING_SERVICE.READY.TITLE")}</h2>
+        <p className={`mx-auto text-white mt-4 max-w-[600px] ${locale == "my" && "max-sm:text-sm leading-7"}`}>
           {t("CONSULTING_SERVICE.READY.DESC")}
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
