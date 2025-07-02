@@ -120,6 +120,7 @@ export default function ChatPage() {
       console.log(response, "rrrrrrrrrrrr")
 
       if (response.status == 200) {
+        console.log(response.status, "sssssssssssss")
         toast.success("Your Email was just sent! 😃");
         console.log("hello");
         // router.refresh();
@@ -131,8 +132,16 @@ export default function ChatPage() {
           subject: "",
           message: "",
         });
+        setErrors({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: ""
+        })
         setWrongEmail("");
       } else {
+        toast.error("Your Email was not sent!")
         if (response.status == 500) {
           const data = await response.json();
           if (data.errors) {
@@ -183,99 +192,109 @@ export default function ChatPage() {
         </p>
       </div>
 
-      <div className="mx-auto max-w-2xl  flex flex-wrap justify-center items-center gap-24 ">
-        {/* <Card>
-          <CardHeader>
-            <CardTitle>Contact Form</CardTitle>
-            <CardDescription>Send us a message and we'll get back to you as soon as possible.</CardDescription>
-          </CardHeader>
-          <form onSubmit={handleClickFormSubmit}>
-            <CardContent>
-              {errorMessage ? <p className="text-red-500 py-2">{errorMessage}</p> : ""}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name</Label>
-                  <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder="Your name" />
-                  {errors.name && (
-                    <span style={{ color: "red", fontSize: "12px" }}>
-                      {errors.name}
-                    </span>
-                  )}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email</Label>
-                  <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder="Your email" />
-                  {wrongEmail && (
-                    <span style={{ color: "red", fontSize: "12px" }}>
-                      {wrongEmail}
-                    </span>
-                  )}
-                  {errors.email && (
-                    <span style={{ color: "red", fontSize: "12px" }}>
-                      {errors.email}
-                    </span>
-                  )}
+      <div>
+        <Tabs defaultValue="email">
+          <TabsList className="w-[40%] max-sm:w-[60%] mx-auto">
+            <TabsTrigger value="email">Email</TabsTrigger>
+            <TabsTrigger value="social">Social</TabsTrigger>
+          </TabsList>
+          <TabsContent value="email">
+            <Card className="w-[60%] max-sm:w-[90%] mx-auto">
+              <CardHeader>
+                <CardTitle>Contact Form</CardTitle>
+                <CardDescription>Send us a message and we'll get back to you as soon as possible.</CardDescription>
+              </CardHeader>
+              <form onSubmit={handleClickFormSubmit}>
+                <CardContent>
+                  {errorMessage ? <p className="text-red-500 py-2">{errorMessage}</p> : ""}
+                  <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name</Label>
+                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder="Your name" />
+                      {errors.name && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          {errors.name}
+                        </span>
+                      )}
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder="Your email" />
+                      {wrongEmail && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          {wrongEmail}
+                        </span>
+                      )}
+                      {errors.email && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          {errors.email}
+                        </span>
+                      )}
 
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4 py-5">
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder="Your phone number" />
-                  {errors.phone && (
-                    <span style={{ color: "red", fontSize: "12px" }}>
-                      {errors.phone}
-                    </span>
-                  )}
-                </div>
-                <div className="space-y-2 !w-full col-span-1">
-                  <Label htmlFor="subject">Subject</Label>
-                  <Select
-                    name="subject"
-                    onValueChange={handleSubjectChange}
-                    value={formData.subject}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select a subject" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="General Inquiry">General Inquiry</SelectItem>
-                      <SelectItem value="Shipping Question">Shipping Question</SelectItem>
-                      <SelectItem value="Order Status">Order Status</SelectItem>
-                      <SelectItem value="Returns & Refunds">Returns & Refunds</SelectItem>
-                      <SelectItem value="Complaint">Complaint</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  {errors.subject && (
-                    <span style={{ color: "red", fontSize: "12px" }}>
-                      {errors.subject}
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="message">Message</Label>
-                <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder="Your message" rows={5} />
-                {errors.message && (
-                  <span style={{ color: "red", fontSize: "12px" }}>
-                    {errors.message}
-                  </span>
-                )}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button
-                type="submit"
-                disabled={loading}
-                className="w-full hover:scale-100 active:scale-95 duration-200 mt-5">Submit</Button>
-            </CardFooter>
-          </form>
-        </Card> */}
-
-        <ContactUs link="https://m.me/myanmarexpresshub" img="/messenger.png" title="Messenger" />
-        <ContactUs link="https://www.facebook.com/myanmarexpresshub/" img="/facebook.png" title="Facebook" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 py-5">
+                    <div className="space-y-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder="Your phone number" />
+                      {errors.phone && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          {errors.phone}
+                        </span>
+                      )}
+                    </div>
+                    <div className="space-y-2 !w-full col-span-1">
+                      <Label htmlFor="subject">Subject</Label>
+                      <Select
+                        name="subject"
+                        onValueChange={handleSubjectChange}
+                        value={formData.subject}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select a subject" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="General Inquiry">General Inquiry</SelectItem>
+                          <SelectItem value="Shipping Question">Shipping Question</SelectItem>
+                          <SelectItem value="Order Status">Order Status</SelectItem>
+                          <SelectItem value="Returns & Refunds">Returns & Refunds</SelectItem>
+                          <SelectItem value="Complaint">Complaint</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {errors.subject && (
+                        <span style={{ color: "red", fontSize: "12px" }}>
+                          {errors.subject}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder="Your message" rows={5} />
+                    {errors.message && (
+                      <span style={{ color: "red", fontSize: "12px" }}>
+                        {errors.message}
+                      </span>
+                    )}
+                  </div>
+                </CardContent>
+                <CardFooter>
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full hover:scale-100 active:scale-95 duration-200 mt-5">Submit</Button>
+                </CardFooter>
+              </form>
+            </Card>
+          </TabsContent>
+          <TabsContent value="social">
+            <div className="mx-auto max-w-2xl mt-9  flex flex-wrap justify-center items-center gap-24 ">
+              <ContactUs link="https://m.me/myanmarexpresshub" img="/messenger.png" title="Messenger" />
+              <ContactUs link="https://www.facebook.com/myanmarexpresshub/" img="/facebook.png" title="Facebook" />
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
-
     </div>
   )
 }

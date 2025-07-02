@@ -8,6 +8,7 @@ import { AIChatBot } from "@/components/chat/ai-chat-bot"
 import { NextIntlClientProvider } from 'next-intl';
 // import { getLocale } from 'next-intl/server';
 import { IntlProviderWrapper } from "@/context/IntlProviderWrapper";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default async function RootLayout({
         <Providers>
           <IntlProviderWrapper>
             <Navbar />
+            <Toaster richColors  />
             <section className="min-h-screen w-full">
               {children}
             </section>
