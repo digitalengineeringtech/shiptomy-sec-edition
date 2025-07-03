@@ -1,3 +1,4 @@
+"use server";
 import Contact from "@/emails/Contact";
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
@@ -10,12 +11,12 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "info@myanmarexpresshub.com",
-      to: "transtakpteltd@gmail.com",
+      to: ["transtakpteltd@gmail.com", "hsetpainghtoo8@gmail.com"],
       subject: subject,
       react: Contact({ name, email, phone, subject, message }),
     });
 
-    console.log(data, error, '====================')
+    console.log(data, error, "====================");
 
     if (error) {
       console.error(error);

@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { MessageCircle, Send, User } from "lucide-react"
+import { Loader, MessageCircle, Send, User } from "lucide-react"
 import z from "zod"
 import { contactSchema } from "@/validators/emails/createContactSchema"
 import { handleInputChange } from "@/utils/handleInputChange"
@@ -80,16 +80,15 @@ export default function ChatPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const [wrongEmail, setWrongEmail] = useState("");
+  // const [wrongEmail, setWrongEmail] = useState("");
 
-  const handleValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    e.preventDefault();
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  // console.log(handleValueChange());
+  // const handleValueChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  //   e.preventDefault();
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const handleSubjectChange = (value: string) => {
     setFormData((prev) => ({
@@ -103,8 +102,6 @@ export default function ChatPage() {
     e.preventDefault();
     setLoading(true);
 
-
-
     // Validate using Zod
     const result = contactSchema.safeParse(formData);
 
@@ -117,12 +114,10 @@ export default function ChatPage() {
         body: JSON.stringify(formData)
       });
 
-      console.log(response, "rrrrrrrrrrrr")
+      // console.log(response, "rrrrrrrrrrrr")
 
       if (response.status == 200) {
-        console.log(response.status, "sssssssssssss")
-        toast.success("Your Email was just sent! 😃");
-        console.log("hello");
+        toast.success("Your Email was just sent! 🎉");
         // router.refresh();
         setLoading(false);
         setFormData({
@@ -139,9 +134,9 @@ export default function ChatPage() {
           subject: "",
           message: ""
         })
-        setWrongEmail("");
+        // setWrongEmail("");
       } else {
-        toast.error("Your Email was not sent!")
+        toast.error("Your Email was not sent! ❌")
         if (response.status == 500) {
           const data = await response.json();
           if (data.errors) {
@@ -155,8 +150,8 @@ export default function ChatPage() {
             setErrors(mappedErrors);
             setLoading(false);
           } else {
-            console.error("Something went wrong!");
-            setWrongEmail("Your Email Address is wrong!")
+            toast.error("Something went wrong! 😥");
+            // setWrongEmail("Your Email Address is wrong!")
             setLoading(false);
           }
 
@@ -194,12 +189,12 @@ export default function ChatPage() {
 
       <div>
         <Tabs defaultValue="email">
-          <TabsList className="w-[40%] max-sm:w-[60%] mx-auto">
+          <TabsList className="w-[40%] max-sm:w-[75%] mx-auto">
             <TabsTrigger value="email">Email</TabsTrigger>
             <TabsTrigger value="social">Social</TabsTrigger>
           </TabsList>
           <TabsContent value="email">
-            <Card className="w-[60%] max-sm:w-[90%] mx-auto">
+            <Card className="w-[70%] max-sm:w-[90%] mx-auto mt-6">
               <CardHeader>
                 <CardTitle>Contact Form</CardTitle>
                 <CardDescription>Send us a message and we'll get back to you as soon as possible.</CardDescription>
@@ -210,7 +205,7 @@ export default function ChatPage() {
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">Name</Label>
-                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder="Your name" />
+                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder="Your name" className={`${errors.name && "!border-red-400 "}`}/>
                       {errors.name && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.name}
@@ -219,12 +214,12 @@ export default function ChatPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder="Your email" />
-                      {wrongEmail && (
+                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder="Your email" className={`${errors.email && "!border-red-400 "}`}/>
+                      {/* {wrongEmail && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {wrongEmail}
                         </span>
-                      )}
+                      )} */}
                       {errors.email && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.email}
@@ -236,7 +231,7 @@ export default function ChatPage() {
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 py-5">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder="Your phone number" />
+                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder="Your phone number" className={`${errors.phone && "!border-red-400 "}`}/>
                       {errors.phone && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.phone}
@@ -249,8 +244,9 @@ export default function ChatPage() {
                         name="subject"
                         onValueChange={handleSubjectChange}
                         value={formData.subject}
+                        
                       >
-                        <SelectTrigger>
+                        <SelectTrigger className={`${errors.subject && "!border-red-400 "}`}>
                           <SelectValue placeholder="Select a subject" />
                         </SelectTrigger>
                         <SelectContent>
@@ -270,7 +266,7 @@ export default function ChatPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder="Your message" rows={5} />
+                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder="Your message" rows={5} className={`${errors.message && "!border-red-400 "}`}/>
                     {errors.message && (
                       <span style={{ color: "red", fontSize: "12px" }}>
                         {errors.message}
@@ -282,7 +278,7 @@ export default function ChatPage() {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full hover:scale-100 active:scale-95 duration-200 mt-5">Submit</Button>
+                    className="w-full hover:scale-100 active:scale-95 duration-200 mt-5"><Loader className={`${loading ? "animate-spin" : "hidden"}`}/>Submit</Button>
                 </CardFooter>
               </form>
             </Card>

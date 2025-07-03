@@ -90,9 +90,9 @@ export const Contact = ({
   };
 
   const infoGrid = {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: '16px',
+    // display: 'grid',
+    // gridTemplateColumns: '1fr 1fr',
+    // gap: '16px',
     // margin: '0 0 32px 0',
     width: "100%",
   };

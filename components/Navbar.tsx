@@ -98,7 +98,7 @@ import Image from "next/image"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LanguageSwitcher from "./LanguageSwitcher"
 import { useTranslations } from "next-intl"
 import { motion } from "framer-motion";
@@ -106,6 +106,12 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   const t = useTranslations();
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const routes = [
     { name: t("HEADER.HOME"), path: "/" },
@@ -122,33 +128,34 @@ const Navbar = () => {
   ]
 
   const mobileMenuVariants = {
-  open: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30,
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
     },
-  },
-  closed: {
-    opacity: 0,
-    y: -50,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 30,
+    closed: {
+      opacity: 0,
+      y: -50,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 30,
+      },
     },
-  },
-}
+  }
 
-
+  // 🚫 Avoid rendering before mount (safe hydration)
+  if (!mounted) return null;
 
   return (
     <header className="sticky top-0 z-[10000] backdrop-blur-md shadow-md w-full h-[70px] flex lg:justify-around justify-between items-center px-6">
       <div>
         <Link href="/">
-          <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={180} height={50} className="max-sm:pr-5"/>
+          <Image src="/MyanmarExpressHub_Logo.png" alt="Myanmar Express Hub" width={180} height={50} className="max-sm:pr-5" />
         </Link>
       </div>
 
@@ -159,23 +166,40 @@ const Navbar = () => {
             {routes.map((e, index) => {
               if (e.name === t("HEADER.SERVICE")) {
                 return (
+                  // <NavigationMenuItem key={index}>
+                  //   <NavigationMenuTrigger className="bg-transparent font-semibold">{e.name}</NavigationMenuTrigger>
+                  //   <NavigationMenuContent className="!w-[250px]">
+                  //     {serviceRoutes.map((i, ind) => (
+                  //       <Link key={ind} href={i.path}>
+                  //         <NavigationMenuLink>{i.name}</NavigationMenuLink>
+                  //       </Link>
+                  //     ))}
+                  //   </NavigationMenuContent>
+                  // </NavigationMenuItem>
                   <NavigationMenuItem key={index}>
                     <NavigationMenuTrigger className="bg-transparent font-semibold">{e.name}</NavigationMenuTrigger>
                     <NavigationMenuContent className="!w-[250px]">
                       {serviceRoutes.map((i, ind) => (
-                        <Link key={ind} href={i.path}>
-                          <NavigationMenuLink>{i.name}</NavigationMenuLink>
-                        </Link>
+                        <NavigationMenuLink asChild key={ind}>
+                          <Link href={i.path}>{i.name}</Link>
+                        </NavigationMenuLink>
                       ))}
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 )
               } else {
                 return (
+                  // <NavigationMenuItem key={index}>
+                  //   <Link className="font-semibold text-[14px]" href={e.path}>
+                  //     <NavigationMenuLink>{e.name}</NavigationMenuLink>
+                  //   </Link>
+                  // </NavigationMenuItem>
                   <NavigationMenuItem key={index}>
-                    <Link className="font-semibold text-[14px]" href={e.path}>
-                      <NavigationMenuLink>{e.name}</NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink asChild>
+                      <Link href={e.path} className="font-semibold text-[14px]">
+                        {e.name}
+                      </Link>
+                    </NavigationMenuLink>
                   </NavigationMenuItem>
                 )
               }
