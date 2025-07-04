@@ -39,9 +39,9 @@ export async function generateAIResponse(
                         - Consulting packages: Range from $1,500 to $7,500 depending on needs
 
                         CONTACT INFORMATION:
-                        - Phone: +95 9 123 456 789
+                        - Contact: Redirect the user to "Chat With Us" Page
                         - Email: info@myanmarexpresshub.com
-                        - Address: 123 Main Street, Yangon, Myanmar
+                        - Address: Singapore, Thailand
                         - Business hours: Monday-Friday 9 AM - 5 PM, Saturday 9 AM - 12 PM
 
                         Your responses should be:

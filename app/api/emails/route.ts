@@ -11,12 +11,12 @@ export async function POST(req: Request) {
 
     const { data, error } = await resend.emails.send({
       from: "info@myanmarexpresshub.com",
-      to: ["transtakpteltd@gmail.com", "hsetpainghtoo8@gmail.com"],
+      to: "info@myanmarexpresshub.com",
       subject: subject,
       react: Contact({ name, email, phone, subject, message }),
     });
 
-    console.log(data, error, "====================");
+    // console.log(data, error, "====================");
 
     if (error) {
       console.error(error);

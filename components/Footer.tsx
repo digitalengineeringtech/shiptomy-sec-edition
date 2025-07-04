@@ -69,10 +69,10 @@ export default function Footer() {
               <MapPin className="h-4 w-4" />
               <span>{t("ADDRESS")}</span>
             </li>
-            <li className="flex items-center gap-2 text-muted-foreground">
+            {/* <li className="flex items-center gap-2 text-muted-foreground">
               <Phone className="h-4 w-4" />
               <span>+95 9 123 456 789</span>
-            </li>
+            </li> */}
             <li className="flex items-center gap-2 text-muted-foreground">
               <Mail className="h-4 w-4" />
               <span>info@myanmarexpresshub.com</span>

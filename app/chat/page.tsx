@@ -8,12 +8,12 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Loader, MessageCircle, Send, User } from "lucide-react"
+import { Loader } from "lucide-react"
 import z from "zod"
 import { contactSchema } from "@/validators/emails/createContactSchema"
 import { handleInputChange } from "@/utils/handleInputChange"
 import { toast } from "sonner"
-import router from "next/router"
+// import router from "next/router"
 import ContactUs from "@/components/ContactUs"
 import { useTranslations } from "next-intl"
 import { useIntlApp } from "@/context/IntlProviderWrapper"
@@ -21,42 +21,6 @@ import { useIntlApp } from "@/context/IntlProviderWrapper"
 type CreateContactFormSchema = z.infer<typeof contactSchema>;
 
 export default function ChatPage() {
-  // const [messages, setMessages] = useState([
-  //   {
-  //     id: 1,
-  //     sender: "system",
-  //     content: "Welcome to Myanmar Express hub! How can we help you today?",
-  //     timestamp: new Date(),
-  //   },
-  // ])
-  // const [inputMessage, setInputMessage] = useState("")
-
-  // const handleSendMessage = () => {
-  //   if (!inputMessage.trim()) return
-
-  //   // Add user message
-  //   const userMessage = {
-  //     id: messages.length + 1,
-  //     sender: "user",
-  //     content: inputMessage,
-  //     timestamp: new Date(),
-  //   }
-
-  //   setMessages([...messages, userMessage])
-  //   setInputMessage("")
-
-  //   // Simulate response after a short delay
-  //   setTimeout(() => {
-  //     const responseMessage = {
-  //       id: messages.length + 2,
-  //       sender: "system",
-  //       content:
-  //         "Thank you for your message. Our customer service team will get back to you shortly. For immediate assistance, please call us at +95 9 123 456 789.",
-  //       timestamp: new Date(),
-  //     }
-  //     setMessages((prev) => [...prev, responseMessage])
-  //   }, 1000)
-  // }
 
   const t = useTranslations();
   const { locale, changeLanguage } = useIntlApp();
@@ -190,22 +154,22 @@ export default function ChatPage() {
       <div>
         <Tabs defaultValue="email">
           <TabsList className="w-[40%] max-sm:w-[75%] mx-auto">
-            <TabsTrigger value="email">Email</TabsTrigger>
-            <TabsTrigger value="social">Social</TabsTrigger>
+            <TabsTrigger value="email">{t("CHAT.TAB_EMAIL")}</TabsTrigger>
+            <TabsTrigger value="social">{t("CHAT.TAB_SOCIAL")}</TabsTrigger>
           </TabsList>
           <TabsContent value="email">
             <Card className="w-[70%] max-sm:w-[90%] mx-auto mt-6">
               <CardHeader>
-                <CardTitle>Contact Form</CardTitle>
-                <CardDescription>Send us a message and we'll get back to you as soon as possible.</CardDescription>
+                <CardTitle className="text-lg">{t("CHAT.CONTACT_FORM")}</CardTitle>
+                <CardDescription >{t("CHAT.CONTACT_INTRO")}</CardDescription>
               </CardHeader>
               <form onSubmit={handleClickFormSubmit}>
                 <CardContent>
                   {errorMessage ? <p className="text-red-500 py-2">{errorMessage}</p> : ""}
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Name</Label>
-                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder="Your name" className={`${errors.name && "!border-red-400 "}`}/>
+                      <Label htmlFor="name">{t("CHAT.NAME")}</Label>
+                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder={`${t("CHAT.YOUR_NAME")}`} className={`${errors.name && "!border-red-400 "}`}/>
                       {errors.name && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.name}
@@ -213,8 +177,8 @@ export default function ChatPage() {
                       )}
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder="Your email" className={`${errors.email && "!border-red-400 "}`}/>
+                      <Label htmlFor="email">{t("CHAT.EMAIL")}</Label>
+                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder={`${t("CHAT.YOUR_EMAIL")}`} className={`${errors.email && "!border-red-400 "}`}/>
                       {/* {wrongEmail && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {wrongEmail}
@@ -230,8 +194,8 @@ export default function ChatPage() {
                   </div>
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 py-5">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder="Your phone number" className={`${errors.phone && "!border-red-400 "}`}/>
+                      <Label htmlFor="phone">{t("CHAT.PHONE_NUMBER")}</Label>
+                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder={`${t("CHAT.YOUR_PHONE_NUMBER")}`} className={`${errors.phone && "!border-red-400 "}`}/>
                       {errors.phone && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.phone}
@@ -239,7 +203,7 @@ export default function ChatPage() {
                       )}
                     </div>
                     <div className="space-y-2 !w-full col-span-1">
-                      <Label htmlFor="subject">Subject</Label>
+                      <Label htmlFor="subject">{t("CHAT.SUBJECT")}</Label>
                       <Select
                         name="subject"
                         onValueChange={handleSubjectChange}
@@ -247,14 +211,14 @@ export default function ChatPage() {
                         
                       >
                         <SelectTrigger className={`${errors.subject && "!border-red-400 "}`}>
-                          <SelectValue placeholder="Select a subject" />
+                          <SelectValue placeholder={`${t("CHAT.SELECT_SUBJECT")}`} />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="General Inquiry">General Inquiry</SelectItem>
-                          <SelectItem value="Shipping Question">Shipping Question</SelectItem>
-                          <SelectItem value="Order Status">Order Status</SelectItem>
-                          <SelectItem value="Returns & Refunds">Returns & Refunds</SelectItem>
-                          <SelectItem value="Complaint">Complaint</SelectItem>
+                          <SelectItem value="General Inquiry">{t("CHAT.GENERAL_INQUIRY")}</SelectItem>
+                          <SelectItem value="Shipping Question">{t("CHAT.SHIPPING_QUESTION")}</SelectItem>
+                          <SelectItem value="Order Status">{t("CHAT.ORDER_STATUS")}</SelectItem>
+                          <SelectItem value="Returns & Refunds">{t("CHAT.RETURNS_REFUNDS")}</SelectItem>
+                          <SelectItem value="Complaint">{t("CHAT.COMPLAINT")}</SelectItem>
                         </SelectContent>
                       </Select>
                       {errors.subject && (
@@ -265,8 +229,8 @@ export default function ChatPage() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder="Your message" rows={5} className={`${errors.message && "!border-red-400 "}`}/>
+                    <Label htmlFor="message">{t("CHAT.MESSAGE")}</Label>
+                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder={`${t("CHAT.YOUR_MESSAGE")}`} rows={5} className={`${errors.message && "!border-red-400 "}`}/>
                     {errors.message && (
                       <span style={{ color: "red", fontSize: "12px" }}>
                         {errors.message}
@@ -278,7 +242,7 @@ export default function ChatPage() {
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full hover:scale-100 active:scale-95 duration-200 mt-5"><Loader className={`${loading ? "animate-spin" : "hidden"}`}/>Submit</Button>
+                    className="w-full hover:scale-100 active:scale-95 duration-200 mt-5"><Loader className={`${loading ? "animate-spin" : "hidden"}`}/>{t("CHAT.SUBMIT")}</Button>
                 </CardFooter>
               </form>
             </Card>

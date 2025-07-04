@@ -166,8 +166,8 @@ export default function TermsPage() {
             {t("ADDRESS")}
             <br />
             {t("EMAIL")}: info@myanmarexpresshub.com
-            <br />
-            {t("PHONE")}: +95 9 123 456 789
+            {/* <br />
+            {t("PHONE")}: +95 9 123 456 789 */}
           </p>
         </div>
 
