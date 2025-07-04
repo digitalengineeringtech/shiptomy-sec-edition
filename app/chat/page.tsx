@@ -160,8 +160,8 @@ export default function ChatPage() {
           <TabsContent value="email">
             <Card className="w-[70%] max-sm:w-[90%] mx-auto mt-6">
               <CardHeader>
-                <CardTitle className="text-lg">{t("CHAT.CONTACT_FORM")}</CardTitle>
-                <CardDescription >{t("CHAT.CONTACT_INTRO")}</CardDescription>
+                <CardTitle className="text-lg max-md:text-[15px]">{t("CHAT.CONTACT_FORM")}</CardTitle>
+                <CardDescription className="max-sm:leading-6">{t("CHAT.CONTACT_INTRO")}</CardDescription>
               </CardHeader>
               <form onSubmit={handleClickFormSubmit}>
                 <CardContent>
@@ -169,7 +169,7 @@ export default function ChatPage() {
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="name">{t("CHAT.NAME")}</Label>
-                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder={`${t("CHAT.YOUR_NAME")}`} className={`${errors.name && "!border-red-400 "}`}/>
+                      <Input name="name" value={formData.name ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="name" placeholder={`${t("CHAT.YOUR_NAME")}`} className={`${errors.name && "!border-red-400 "} ${locale == "my" && "max-sm:text-[13px]"}`}/>
                       {errors.name && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.name}
@@ -178,7 +178,7 @@ export default function ChatPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">{t("CHAT.EMAIL")}</Label>
-                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder={`${t("CHAT.YOUR_EMAIL")}`} className={`${errors.email && "!border-red-400 "}`}/>
+                      <Input name="email" value={formData.email ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="email" type="email" placeholder={`${t("CHAT.YOUR_EMAIL")}`} className={`${errors.email && "!border-red-400 "} ${locale == "my" && "max-sm:text-[13px]"}`}/>
                       {/* {wrongEmail && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {wrongEmail}
@@ -195,7 +195,7 @@ export default function ChatPage() {
                   <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-4 py-5">
                     <div className="space-y-2">
                       <Label htmlFor="phone">{t("CHAT.PHONE_NUMBER")}</Label>
-                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder={`${t("CHAT.YOUR_PHONE_NUMBER")}`} className={`${errors.phone && "!border-red-400 "}`}/>
+                      <Input name="phone" value={formData.phone ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="phone" placeholder={`${t("CHAT.YOUR_PHONE_NUMBER")}`} className={`${errors.phone && "!border-red-400 "} ${locale == "my" && "max-sm:text-[13px]"}`}/>
                       {errors.phone && (
                         <span style={{ color: "red", fontSize: "12px" }}>
                           {errors.phone}
@@ -211,7 +211,7 @@ export default function ChatPage() {
                         
                       >
                         <SelectTrigger className={`${errors.subject && "!border-red-400 "}`}>
-                          <SelectValue placeholder={`${t("CHAT.SELECT_SUBJECT")}`} />
+                          <SelectValue placeholder={`${t("CHAT.SELECT_SUBJECT")}`} className={`${locale == "my" && "max-sm:text-[13px]"}`} />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="General Inquiry">{t("CHAT.GENERAL_INQUIRY")}</SelectItem>
@@ -230,7 +230,7 @@ export default function ChatPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">{t("CHAT.MESSAGE")}</Label>
-                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder={`${t("CHAT.YOUR_MESSAGE")}`} rows={5} className={`${errors.message && "!border-red-400 "}`}/>
+                    <Textarea name="message" value={formData.message ?? ""} onChange={(event) => handleInputChange(event, setFormData)} id="message" placeholder={`${t("CHAT.YOUR_MESSAGE")}`} rows={5} className={`${errors.message && "!border-red-400 "} ${locale == "my" && "max-sm:text-[13px]"}`}/>
                     {errors.message && (
                       <span style={{ color: "red", fontSize: "12px" }}>
                         {errors.message}
