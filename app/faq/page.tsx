@@ -37,12 +37,12 @@ export default function FAQPage() {
               {t("FAQ.ANS_3")}
             </AccordionContent>
           </AccordionItem>
-          <AccordionItem value="item-4">
+          {/* <AccordionItem value="item-4">
             <AccordionTrigger className={`${locale == "my" && "font-semibold"}`}>{t("FAQ.QUEST_4")}</AccordionTrigger>
             <AccordionContent className="text-justify leading-7">
               {t("FAQ.ANS_4")}
             </AccordionContent>
-          </AccordionItem>
+          </AccordionItem> */}
           <AccordionItem value="item-5">
             <AccordionTrigger className={`${locale == "my" && "font-semibold"}`}>{t("FAQ.QUEST_5")}</AccordionTrigger>
             <AccordionContent className="text-justify leading-7">
