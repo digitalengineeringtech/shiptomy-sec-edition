@@ -73,9 +73,11 @@ export default function Footer() {
               <Phone className="h-4 w-4" />
               <span>+95 9 123 456 789</span>
             </li> */}
-            <li className="flex items-center gap-2 text-muted-foreground">
-              <Mail className="h-4 w-4" />
-              <span>info@myanmarexpresshub.com</span>
+            <li>
+              <Link href="mailto:info@myanmarexpresshub.com" className="flex items-center gap-2 text-muted-foreground hover:text-foreground">
+                <Mail className="h-4 w-4" />
+                <span>info@myanmarexpresshub.com</span>
+              </Link>
             </li>
             <li className="mt-4 flex items-center gap-4">
               <Link href="https://www.facebook.com/myanmarexpresshub/" className="text-muted-foreground hover:text-foreground">

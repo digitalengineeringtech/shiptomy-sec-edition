@@ -151,7 +151,7 @@ export default function ShipForMePage() {
       </div>
 
       {/* Shipping Rates */}
-      <div className="mb-16">
+      {/* <div className="mb-16">
         <h2 className={`mb-8 text-3xl font-bold ${locale == "my" && "max-sm:text-2xl"}`}>{t("SHIP_FOR_ME.SHIPPING_RATES.TITLE")}</h2>
         <Card>
           <CardContent className="pt-6">
@@ -208,13 +208,13 @@ export default function ShipForMePage() {
             </p>
           </CardContent>
         </Card>
-      </div>
+      </div> */}
 
       {/* Supported Countries */}
       <div className="mb-16">
         <h2 className={`mb-8 text-3xl font-bold ${locale == "my" && "max-sm:text-2xl leading-12"}`}>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.TITLE")}</h2>
-        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          <Card>
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 mx-auto">
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.USA")}</CardTitle>
             </CardHeader>
@@ -223,8 +223,8 @@ export default function ShipForMePage() {
                 <Image src="/usa.png" alt="usa" width={100} height={100}/>
               </div>
             </CardContent>
-          </Card>
-          <Card>
+          </Card> */}
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.UK")}</CardTitle>
             </CardHeader>
@@ -233,15 +233,24 @@ export default function ShipForMePage() {
                 <Image src="/uk.svg" alt="uk" width={100} height={100}/>
               </div>
             </CardContent>
-          </Card>
-          <Card>
+          </Card> */}
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.JP")}</CardTitle>
             </CardHeader>
             <CardContent className="flex justify-center">
-                {/* <span className="text-muted-foreground text-xs">Japan</span> */}
               <div className="bg-muted p-1 rounded-md flex items-center justify-center">
                 <Image src="/japan.jpg" alt="japan" width={100} height={100}/>
+              </div>
+            </CardContent>
+          </Card> */}
+          <Card>
+            <CardHeader className="text-center">
+              <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.MYA")}</CardTitle>
+            </CardHeader>
+            <CardContent className="flex justify-center">
+              <div className="bg-muted p-1 rounded-md flex items-center justify-center">
+                <Image src="/myanmar.png" alt="myanmar" width={130} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -251,7 +260,7 @@ export default function ShipForMePage() {
             </CardHeader>
             <CardContent className="flex justify-center">
               <div className="bg-muted p-1 rounded-md flex items-center justify-center">
-                <Image src="/thailand.jpg" alt="thailand" width={100} height={100}/>
+                <Image src="/thailand.jpg" alt="thailand" width={150} height={100}/>
               </div>
             </CardContent>
           </Card>
@@ -261,11 +270,12 @@ export default function ShipForMePage() {
             </CardHeader>
             <CardContent className="flex justify-center">
               <div className="bg-muted p-1 rounded-md flex items-center justify-center">
-                <Image src="/singapore.jpg" alt="singapore" width={100} height={100}/>
+                <Image src="/singapore.jpg" alt="singapore" width={150} height={100}/>
               </div>
             </CardContent>
           </Card>
-          <Card>
+          
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.SK")}</CardTitle>
             </CardHeader>
@@ -274,8 +284,8 @@ export default function ShipForMePage() {
                 <Image src="/south_korea.jpg" alt="south-korea" width={100} height={100}/>
               </div>
             </CardContent>
-          </Card>
-          <Card>
+          </Card> */}
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.AUS")}</CardTitle>
             </CardHeader>
@@ -284,8 +294,8 @@ export default function ShipForMePage() {
                 <Image src="/australia.jpg" alt="‌australia" width={100} height={100}/>
               </div>
             </CardContent>
-          </Card>
-          <Card>
+          </Card> */}
+          {/* <Card>
             <CardHeader className="text-center">
               <CardTitle>{t("SHIP_FOR_ME.SUPPORTED_COUNTRIES.GER")}</CardTitle>
             </CardHeader>
@@ -294,7 +304,7 @@ export default function ShipForMePage() {
                 <Image src="/germany.jpg" alt="germany" width={100} height={100}/>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
 
